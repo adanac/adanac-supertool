@@ -5,6 +5,8 @@ import java.net.URLDecoder;
 import java.net.URLEncoder;
 import java.nio.charset.Charset;
 
+import com.adanac.tool.supertool.j2se.convert.AmountUtil;
+
 /**
  * 字符串工具类
  * 
@@ -211,7 +213,7 @@ public class StringUtils {
 		}
 		String ds = "";
 		try {
-			ds = AmountUtils.changeF2Y(temp);
+			ds = AmountUtil.changeF2Y(temp);
 		} catch (Exception e) {
 			e.printStackTrace();
 		}

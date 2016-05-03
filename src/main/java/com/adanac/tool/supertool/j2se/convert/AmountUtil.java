@@ -1,8 +1,8 @@
-package com.adanac.tool.supertool.j2se;
+package com.adanac.tool.supertool.j2se.convert;
 
 import java.math.BigDecimal;
 
-public class AmountUtils {
+public class AmountUtil {
 
 	/** 金额为分的格式 */
 	public static final String CURRENCY_FEN_REGEX = "\\-?[0-9]+";
@@ -104,9 +104,9 @@ public class AmountUtils {
 		// }
 		// System.out.println("结果："+changeY2F("1.00000000001E10"));
 
-		System.out.println(AmountUtils.changeY2F("1.33"));
+		System.out.println(AmountUtil.changeY2F("1.33"));
 		try {
-			System.out.println(AmountUtils.changeF2Y("1322"));
+			System.out.println(AmountUtil.changeF2Y("1322"));
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
