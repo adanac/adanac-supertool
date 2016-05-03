@@ -7,16 +7,21 @@ import java.nio.charset.Charset;
 
 /**
  * 字符串工具类
+ * 
  * @author <a href="http://www.xdemo.org/">http://www.xdemo.org/</a>
- * 252878950@qq.com
+ *         252878950@qq.com
  */
 public class StringUtils {
 
 	/**
 	 * 将字符串有某种编码转变成另一种编码
-	 * @param string 编码的字符串
-	 * @param originCharset 原始编码格式
-	 * @param targetCharset 目标编码格式
+	 * 
+	 * @param string
+	 *            编码的字符串
+	 * @param originCharset
+	 *            原始编码格式
+	 * @param targetCharset
+	 *            目标编码格式
 	 * @return String 编码后的字符串
 	 */
 	public static String encodeString(String string, Charset originCharset, Charset targetCharset) {
@@ -25,8 +30,11 @@ public class StringUtils {
 
 	/**
 	 * URL编码
-	 * @param string 编码字符串
-	 * @param charset 编码格式
+	 * 
+	 * @param string
+	 *            编码字符串
+	 * @param charset
+	 *            编码格式
 	 * @return String
 	 */
 	@SuppressWarnings("deprecation")
@@ -43,8 +51,11 @@ public class StringUtils {
 
 	/**
 	 * URL编码
-	 * @param string 解码字符串
-	 * @param charset 解码格式
+	 * 
+	 * @param string
+	 *            解码字符串
+	 * @param charset
+	 *            解码格式
 	 * @return String
 	 */
 	@SuppressWarnings("deprecation")
@@ -61,8 +72,8 @@ public class StringUtils {
 	}
 
 	/**
-	 * 判断字符串是否是空的
-	 * 方法摘自commons.lang
+	 * 判断字符串是否是空的 方法摘自commons.lang
+	 * 
 	 * <pre>
 	 * StringUtils.isEmpty(null)      = true
 	 * StringUtils.isEmpty("")        = true
@@ -70,6 +81,7 @@ public class StringUtils {
 	 * StringUtils.isEmpty("bob")     = false
 	 * StringUtils.isEmpty("  bob  ") = false
 	 * </pre>
+	 * 
 	 * @param str
 	 * @return boolean
 	 */
@@ -78,16 +90,19 @@ public class StringUtils {
 	}
 
 	/**
-	* <p>判断字符串是否是""," ",null,注意和isEmpty的区别</p>
-	* 方法摘自commons.lang
-	* <pre>
+	 * <p>
+	 * 判断字符串是否是""," ",null,注意和isEmpty的区别
+	 * </p>
+	 * 方法摘自commons.lang
+	 * 
+	 * <pre>
 	* StringUtils.isBlank(null)      = true
 	* StringUtils.isBlank("")        = true
 	* StringUtils.isBlank(" ")       = true
 	* StringUtils.isBlank("bob")     = false
 	* StringUtils.isBlank("  bob  ") = false
-	* </pre>
-	*/
+	 * </pre>
+	 */
 	public static boolean isBlank(String str) {
 		int strLen;
 		if (str == null || (strLen = str.length()) == 0) {
@@ -103,6 +118,7 @@ public class StringUtils {
 
 	/**
 	 * 首字母转大写
+	 * 
 	 * @param str
 	 * @return
 	 */
@@ -118,6 +134,7 @@ public class StringUtils {
 
 	/**
 	 * 首字母转小写
+	 * 
 	 * @param str
 	 * @return
 	 */
@@ -133,6 +150,7 @@ public class StringUtils {
 
 	/**
 	 * 去字符串两端空格
+	 * 
 	 * @param str
 	 * @return
 	 */
@@ -142,6 +160,7 @@ public class StringUtils {
 
 	/**
 	 * 字符串判断是否相等
+	 * 
 	 * @param str1
 	 * @param str2
 	 * @return
@@ -150,9 +169,16 @@ public class StringUtils {
 		return str1.equalsIgnoreCase(str2);
 	}
 
+	public static void split(String s) {
+		String str1 = s.split("\\/").toString();
+		String str2 = s.split("\\/", 2).toString();
+		System.out.println(str1 + "," + str2);
+	}
+
 	public static void main(String[] args) {
 		String x = "       x ";
 		System.out.println(x);
 		System.out.println(trim(x));
+		split("http:/www.baidu.com/news/basketball");
 	}
 }
