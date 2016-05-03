@@ -25,11 +25,10 @@ import org.apache.poi.ss.usermodel.Workbook;
 import org.apache.poi.xssf.usermodel.XSSFCell;
 import org.apache.poi.xssf.usermodel.XSSFWorkbook;
 
-import com.adanac.tool.supertool.j2se.ReflectUtils;
+import com.adanac.tool.supertool.j2se.clazz.ReflectUtils;
 
 /**
- * @author Goofy
- * Excel内容转化成Bean
+ * @author Goofy Excel内容转化成Bean
  */
 public class ExcelToBean {
 

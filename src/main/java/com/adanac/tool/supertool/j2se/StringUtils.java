@@ -203,7 +203,23 @@ public class StringUtils {
 		return sbu.toString();
 	}
 
+	public static String test1() {
+		String temp = "1000100";
+		if (temp.contains(".")) {
+			int index = temp.indexOf(".");
+			temp = temp.substring(0, index);
+		}
+		String ds = "";
+		try {
+			ds = AmountUtils.changeF2Y(temp);
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		return ds;
+	}
+
 	public static void main(String[] args) {
+		System.out.println(test1());
 		String x = "       x ";
 		System.out.println(x);
 		System.out.println(trim(x));

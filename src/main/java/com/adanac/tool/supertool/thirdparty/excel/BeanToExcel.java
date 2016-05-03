@@ -19,10 +19,11 @@ import org.apache.poi.xssf.streaming.SXSSFWorkbook;
 import org.apache.poi.xssf.usermodel.XSSFCellStyle;
 import org.apache.poi.xssf.usermodel.XSSFColor;
 
-import com.adanac.tool.supertool.j2se.ReflectUtils;
+import com.adanac.tool.supertool.j2se.clazz.ReflectUtils;
 
 /**
  * 根据Bean上的Excel注解写入到Excel
+ * 
  * @author Goofy 2015/9/16 ReWrite
  */
 public class BeanToExcel {
