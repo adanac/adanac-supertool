@@ -8,27 +8,18 @@ import java.util.GregorianCalendar;
 
 /**
  * 日期工具类
-<<<<<<< HEAD
- * @author <a href="http://www.xdemo.org/">http://www.xdemo.org/</a>
- * 252878950@qq.com
-=======
  * 
  * @author <a href="http://www.xdemo.org/">http://www.xdemo.org/</a>
  *         252878950@qq.com
->>>>>>> ff569142e31c56d680401fc37b5971d6e99345a2
  */
 public class DateUtils {
 
 	/**
 	 * <b>获取当前时间</b><br>
 	 * y 年 M 月 d 日 H 24小时制 h 12小时制 m 分 s 秒
-<<<<<<< HEAD
-	 * @param format 日期格式
-=======
 	 * 
 	 * @param format
 	 *            日期格式
->>>>>>> ff569142e31c56d680401fc37b5971d6e99345a2
 	 * @return String
 	 */
 	public static String getCurrentDate(String format) {
@@ -38,16 +29,11 @@ public class DateUtils {
 
 	/**
 	 * 获取制定日期的格式化字符串
-<<<<<<< HEAD
-	 * @param date Date 日期
-	 * @param format String 格式
-=======
 	 * 
 	 * @param date
 	 *            Date 日期
 	 * @param format
 	 *            String 格式
->>>>>>> ff569142e31c56d680401fc37b5971d6e99345a2
 	 * @return String
 	 */
 	public static String getFormatedDate(Date date, String format) {
@@ -57,16 +43,11 @@ public class DateUtils {
 
 	/**
 	 * 判断哪个日期在前 日过日期一在日期二之前，返回true,否则返回false
-<<<<<<< HEAD
-	 * @param date1 日期一
-	 * @param date2 日期二
-=======
 	 * 
 	 * @param date1
 	 *            日期一
 	 * @param date2
 	 *            日期二
->>>>>>> ff569142e31c56d680401fc37b5971d6e99345a2
 	 * @return boolean
 	 */
 	public static boolean isBefore(Date date1, Date date2) {
@@ -84,13 +65,9 @@ public class DateUtils {
 
 	/**
 	 * 将字符串转换成日期
-<<<<<<< HEAD
-	 * @param date String 日期字符串
-=======
 	 * 
 	 * @param date
 	 *            String 日期字符串
->>>>>>> ff569142e31c56d680401fc37b5971d6e99345a2
 	 * @return Date
 	 * @throws ParseException
 	 */
@@ -100,9 +77,6 @@ public class DateUtils {
 	}
 
 	/**
-<<<<<<< HEAD
-	 * 获取指定日期当月的最后一天
-=======
 	 * 解析时间字符串<br>
 	 * 
 	 * @param source
@@ -121,7 +95,6 @@ public class DateUtils {
 	/**
 	 * 获取指定日期当月的最后一天
 	 * 
->>>>>>> ff569142e31c56d680401fc37b5971d6e99345a2
 	 * @param date
 	 * @return
 	 */
@@ -136,10 +109,7 @@ public class DateUtils {
 
 	/**
 	 * 获取指定日期当月的第一天
-<<<<<<< HEAD
-=======
 	 * 
->>>>>>> ff569142e31c56d680401fc37b5971d6e99345a2
 	 * @param date
 	 * @return
 	 */
@@ -152,13 +122,9 @@ public class DateUtils {
 
 	/**
 	 * 是否是闰年
-<<<<<<< HEAD
-	 * @param year 年份
-=======
 	 * 
 	 * @param year
 	 *            年份
->>>>>>> ff569142e31c56d680401fc37b5971d6e99345a2
 	 * @return boolean
 	 */
 	public static boolean isLeapYear(int year) {
@@ -168,16 +134,11 @@ public class DateUtils {
 
 	/**
 	 * 获取指定日期之前或者之后多少天的日期
-<<<<<<< HEAD
-	 * @param day 指定的时间
-	 * @param offset 日期偏移量，正数表示延后，负数表示天前
-=======
 	 * 
 	 * @param day
 	 *            指定的时间
 	 * @param offset
 	 *            日期偏移量，正数表示延后，负数表示天前
->>>>>>> ff569142e31c56d680401fc37b5971d6e99345a2
 	 * @return Date
 	 */
 	public static Date getDateByOffset(Date day, int offset) {
@@ -189,10 +150,7 @@ public class DateUtils {
 
 	/**
 	 * 获取一天开始时间 如 2014-12-12 00:00:00
-<<<<<<< HEAD
-=======
 	 * 
->>>>>>> ff569142e31c56d680401fc37b5971d6e99345a2
 	 * @return
 	 */
 	public static Date getDayStart() {
@@ -206,10 +164,7 @@ public class DateUtils {
 
 	/**
 	 * 获取一天结束时间 如 2014-12-12 23:59:59
-<<<<<<< HEAD
-=======
 	 * 
->>>>>>> ff569142e31c56d680401fc37b5971d6e99345a2
 	 * @return
 	 */
 	public static Date getDayEnd() {
@@ -222,14 +177,6 @@ public class DateUtils {
 	}
 
 	/**
-<<<<<<< HEAD
-	 * 时间分段
-	 * 比如：2014-12-12 10:00:00 ～ 2014-12-12 14:00:00 
-	 * 分成两段就是 2014-12-12 10：00：00 ～ 2014-12-12 12：00：00 和2014-12-12 12：00：00 ～ 2014-12-12 14：00：00
-	 * @param start 起始日期
-	 * @param end 结束日期
-	 * @param pieces 分成几段
-=======
 	 * 时间分段 比如：2014-12-12 10:00:00 ～ 2014-12-12 14:00:00 分成两段就是 2014-12-12
 	 * 10：00：00 ～ 2014-12-12 12：00：00 和2014-12-12 12：00：00 ～ 2014-12-12 14：00：00
 	 * 
@@ -239,7 +186,6 @@ public class DateUtils {
 	 *            结束日期
 	 * @param pieces
 	 *            分成几段
->>>>>>> ff569142e31c56d680401fc37b5971d6e99345a2
 	 */
 	public static Date[] getDatePieces(Date start, Date end, int pieces) {
 
@@ -264,10 +210,7 @@ public class DateUtils {
 
 	/**
 	 * 获取某个日期的当月第一天
-<<<<<<< HEAD
-=======
 	 * 
->>>>>>> ff569142e31c56d680401fc37b5971d6e99345a2
 	 * @return
 	 */
 	public static Date getFirstDayOfMonth(Date date) {
@@ -279,10 +222,7 @@ public class DateUtils {
 
 	/**
 	 * 获取某个日期的当月最后一天
-<<<<<<< HEAD
-=======
 	 * 
->>>>>>> ff569142e31c56d680401fc37b5971d6e99345a2
 	 * @return
 	 */
 	public static Date getLastDayOfMonth(Date date) {
@@ -294,10 +234,7 @@ public class DateUtils {
 
 	/**
 	 * 获取某个日期的当月第一天
-<<<<<<< HEAD
-=======
 	 * 
->>>>>>> ff569142e31c56d680401fc37b5971d6e99345a2
 	 * @return
 	 */
 	public static Date getFirstDayOfMonth(int year, int month) {
@@ -310,10 +247,7 @@ public class DateUtils {
 
 	/**
 	 * 获取某个日期的当月最后一天
-<<<<<<< HEAD
-=======
 	 * 
->>>>>>> ff569142e31c56d680401fc37b5971d6e99345a2
 	 * @return
 	 */
 	public static Date getLastDayOfMonth(int year, int month) {

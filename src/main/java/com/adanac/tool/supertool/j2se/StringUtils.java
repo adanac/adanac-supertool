@@ -5,11 +5,8 @@ import java.net.URLDecoder;
 import java.net.URLEncoder;
 import java.nio.charset.Charset;
 
-<<<<<<< HEAD
-=======
 import com.adanac.tool.supertool.j2se.convert.AmountUtil;
 
->>>>>>> ff569142e31c56d680401fc37b5971d6e99345a2
 /**
  * 字符串工具类
  * 
@@ -174,19 +171,6 @@ public class StringUtils {
 		return str1.equalsIgnoreCase(str2);
 	}
 
-<<<<<<< HEAD
-	public static void split(String s) {
-		String str1 = s.split("\\/").toString();
-		String str2 = s.split("\\/", 2).toString();
-		System.out.println(str1 + "," + str2);
-	}
-
-	public static void main(String[] args) {
-		String x = "       x ";
-		System.out.println(x);
-		System.out.println(trim(x));
-		split("http:/www.baidu.com/news/basketball");
-=======
 	/**
 	 * string转ascii
 	 * 
@@ -242,6 +226,5 @@ public class StringUtils {
 		System.out.println(x);
 		System.out.println(trim(x));
 		System.out.println(asciiToString("91,76,49"));
->>>>>>> ff569142e31c56d680401fc37b5971d6e99345a2
 	}
 }
