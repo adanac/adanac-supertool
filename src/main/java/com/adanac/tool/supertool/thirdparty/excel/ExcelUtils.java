@@ -35,11 +35,19 @@ import org.apache.poi.xssf.usermodel.XSSFColor;
 import org.apache.poi.xssf.usermodel.XSSFFont;
 import org.apache.poi.xssf.usermodel.XSSFWorkbook;
 
+<<<<<<< HEAD
 import com.adanac.tool.supertool.j2se.ReflectUtils;
+=======
+import com.adanac.tool.supertool.j2se.clazz.ReflectUtils;
+>>>>>>> ff569142e31c56d680401fc37b5971d6e99345a2
 import com.google.gson.GsonBuilder;
 
 /**
  * Excel导入导出(不推荐使用，已被其他类所代替)
+<<<<<<< HEAD
+=======
+ * 
+>>>>>>> ff569142e31c56d680401fc37b5971d6e99345a2
  * @see org.xdemo.superutil.thirdparty.excel.BeanToExcel
  * @see org.xdemo.superutil.thirdparty.excel.ExcelToBean
  * @see org.xdemo.superutil.thirdparty.excel.CustomizeToExcel
@@ -604,6 +612,10 @@ public class ExcelUtils<E> {
 
 	/**
 	 * 将数据导入到Excel并且下载
+<<<<<<< HEAD
+=======
+	 * 
+>>>>>>> ff569142e31c56d680401fc37b5971d6e99345a2
 	 * @param response
 	 * @param list
 	 * @param edf

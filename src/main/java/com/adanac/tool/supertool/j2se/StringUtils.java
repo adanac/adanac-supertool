@@ -5,6 +5,11 @@ import java.net.URLDecoder;
 import java.net.URLEncoder;
 import java.nio.charset.Charset;
 
+<<<<<<< HEAD
+=======
+import com.adanac.tool.supertool.j2se.convert.AmountUtil;
+
+>>>>>>> ff569142e31c56d680401fc37b5971d6e99345a2
 /**
  * 字符串工具类
  * 
@@ -169,6 +174,7 @@ public class StringUtils {
 		return str1.equalsIgnoreCase(str2);
 	}
 
+<<<<<<< HEAD
 	public static void split(String s) {
 		String str1 = s.split("\\/").toString();
 		String str2 = s.split("\\/", 2).toString();
@@ -180,5 +186,62 @@ public class StringUtils {
 		System.out.println(x);
 		System.out.println(trim(x));
 		split("http:/www.baidu.com/news/basketball");
+=======
+	/**
+	 * string转ascii
+	 * 
+	 * @param value
+	 * @return
+	 */
+	public static String stringToAscii(String value) {
+		StringBuffer sbu = new StringBuffer();
+		char[] chars = value.toCharArray();
+		for (int i = 0; i < chars.length; i++) {
+			if (i != chars.length - 1) {
+				sbu.append((int) chars[i]).append(",");
+			} else {
+				sbu.append((int) chars[i]);
+			}
+		}
+		return sbu.toString();
+	}
+
+	/**
+	 * 将ASCII转成字符串
+	 * 
+	 * @param value
+	 * @return
+	 */
+	public static String asciiToString(String value) {
+		StringBuffer sbu = new StringBuffer();
+		String[] chars = value.split(",");
+		for (int i = 0; i < chars.length; i++) {
+			sbu.append((char) Integer.parseInt(chars[i]));
+		}
+		return sbu.toString();
+	}
+
+	public static String test1() {
+		String temp = "1000100";
+		if (temp.contains(".")) {
+			int index = temp.indexOf(".");
+			temp = temp.substring(0, index);
+		}
+		String ds = "";
+		try {
+			ds = AmountUtil.changeF2Y(temp);
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		return ds;
+	}
+
+	public static void main(String[] args) {
+		System.out.println(test1());
+		String x = "       x ";
+		System.out.println(x);
+		System.out.println(trim(x));
+		System.out.println(asciiToString("91,76,49"));
+>>>>>>> ff569142e31c56d680401fc37b5971d6e99345a2
 	}
 }

@@ -7,8 +7,8 @@
 	<version>1.0.0</version>	
   </parent>
   <groupId>com.adanac.tool</groupId>
-  <artifactId>adanac-superutility</artifactId>
-  <packaging>war</packaging>
+  <artifactId>adanac-supertool</artifactId>
+  <packaging>jar</packaging>
 
 	<!-- 项目发布到私服 
 	<distributionManagement>
@@ -35,6 +35,11 @@
 	 </properties>
 
 	<dependencies>
+		<dependency>
+		  <groupId>com.adanac.framework</groupId>
+		  <artifactId>adanac-log</artifactId>
+		  <version>1.0.0</version>
+		</dependency>
 		<dependency>
 			<groupId>junit</groupId>
 			<artifactId>junit</artifactId>
@@ -96,6 +101,11 @@
 			<groupId>net.sf.json-lib</groupId>
 			<artifactId>json-lib</artifactId>
 			<classifier>jdk15</classifier>
+		</dependency>
+		<dependency>
+			<groupId>com.adanac.framework</groupId>
+			<artifactId>adanac-cache</artifactId>
+			<version>1.0.0</version>
 		</dependency>
 	</dependencies>
 
