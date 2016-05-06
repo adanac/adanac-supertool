@@ -95,7 +95,46 @@ public class AmountUtil {
 		return amLong.toString();
 	}
 
+	/**
+	 * 将分为单位的转换为元 （除100）
+	 * 
+	 * @param amount
+	 * @return
+	 * @throws Exception
+	 */
+	public static String changeF2Y2(String amount) {
+		try {
+			if (amount.contains(".")) {
+				return BigDecimal.valueOf(Double.parseDouble(amount)).divide(new BigDecimal(100)).toString();
+			} else {
+				return BigDecimal.valueOf(Long.valueOf(amount)).divide(new BigDecimal(100)).toString();
+			}
+		} catch (Exception e) {
+			throw new RuntimeException("金额分转元错误");
+		}
+	}
+
+	/**
+	 * 将元为单位的转换为分 （乘100）
+	 * 
+	 * @param amount
+	 * @return
+	 */
+	public static String changeY2F2(String amount) {
+		try {
+			if (amount.contains(".")) {
+				return BigDecimal.valueOf(Double.parseDouble(amount)).multiply(new BigDecimal(100)).toString();
+			} else {
+				return BigDecimal.valueOf(Long.valueOf(amount)).multiply(new BigDecimal(100)).toString();
+			}
+		} catch (Exception e) {
+			throw new RuntimeException("金额元转分错误");
+		}
+	}
+
 	public static void main(String[] args) {
+		System.out.println(changeY2F2("22.99"));
+		System.out.println(changeF2Y2("2299.00"));
 		// try {
 		// System.out.println("结果："+changeF2Y("-000a00"));
 		// } catch(Exception e){
