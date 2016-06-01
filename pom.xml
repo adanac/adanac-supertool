@@ -107,6 +107,10 @@
 			<artifactId>adanac-cache</artifactId>
 			<version>1.0.0</version>
 		</dependency>
+		<dependency>
+			<groupId>org.apache</groupId>
+			<artifactId>commons-dbutils</artifactId>
+		</dependency>
 	</dependencies>
 
 	<build>
