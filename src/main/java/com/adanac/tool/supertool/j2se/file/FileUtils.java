@@ -428,6 +428,28 @@ public class FileUtils {
 		return name.substring(pos + 1, name.length());
 	}
 
+	/**
+	 * 创建文件
+	 * @param path
+	 * @param filename
+	 * @throws IOException
+	 */
+	public static void createFile(String path, String filename) throws IOException {
+		File file = new File(path + "/" + filename);
+		if (!file.exists())
+			file.createNewFile();
+	}
+
+	/**
+	 * 创建文件夹
+	 * @param path
+	 */
+	public static void createDir(String path) {
+		File dir = new File(path);
+		if (!dir.exists())
+			dir.mkdir();
+	}
+
 	public static void main(String[] args) throws MalformedURLException, IOException {
 		/*
 		 * copyFileFromURL(new URL("http://www.baidu.com/img/bdlogo.gif"), new
