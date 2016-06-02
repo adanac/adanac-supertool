@@ -1,10 +1,14 @@
-package com.adanac.tool.supertool.j2se;
+package com.adanac.tool.supertool.sfunc.captcha;
 
 import java.awt.Color;
 import java.awt.Font;
 import java.awt.Graphics;
 import java.awt.image.BufferedImage;
+import java.io.File;
+import java.io.IOException;
 import java.util.Random;
+
+import javax.imageio.ImageIO;
 
 /**
  * 验证码工具类
@@ -135,13 +139,16 @@ public class CaptchaUtils {
 
 		return object;
 	}
-	/*
-	 * 测试代码 public static void main(String[] args) throws IOException,
-	 * InterruptedException { for(int i=0;i<10;i++){ Object[]
-	 * obj=getCaptchaImage(150, 50, 35, 50, 500, true,true,
-	 * ComplexLevel.MEDIUM); System.out.println("验证码"+obj[1]); new
-	 * File("C:\\test").mkdir(); ImageIO.write((BufferedImage)obj[0],"jpg",new
-	 * File("C:\\test\\"+System.currentTimeMillis()+".jpg"));
-	 * Thread.sleep(500L); } }
-	 */
+
+	// 测试代码
+	public static void main(String[] args) throws IOException, InterruptedException {
+		for (int i = 0; i < 10; i++) {
+			Object[] obj = getCaptchaImage(150, 50, 35, 50, 500, true, true, ComplexLevel.MEDIUM);
+			System.out.println("验证码" + obj[1]);
+			new File("C:\\test").mkdir();
+			ImageIO.write((BufferedImage) obj[0], "jpg", new File("C:\\test\\" + System.currentTimeMillis() + ".jpg"));
+			Thread.sleep(500L);
+		}
+	}
+
 }

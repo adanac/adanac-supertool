@@ -1,4 +1,4 @@
-package com.adanac.tool.supertool.j2se;
+package com.adanac.tool.supertool.sfunc.captcha;
 
 import java.awt.Color;
 import java.awt.Graphics;
@@ -19,6 +19,11 @@ import java.text.DecimalFormat;
 
 import javax.imageio.ImageIO;
 import javax.imageio.stream.ImageOutputStream;
+
+import org.apache.commons.httpclient.HttpClient;
+import org.apache.commons.httpclient.HttpStatus;
+import org.apache.commons.httpclient.methods.GetMethod;
+import org.apache.commons.io.IOUtils;
 
 /**
  * 图像处理工具类（本类完全可以使用，但是更加推荐ImageMagick +Jmagick，采用C++实现的一个类库，提供了Java的Api，非常强大和高效）
@@ -156,4 +161,27 @@ public class ImageUtils {
 		byteOut.close();
 	}
 
+	public static void downloadImage(String savePath, String downPath) {
+		HttpClient httpClient = new HttpClient();
+		GetMethod getMethod = new GetMethod(downPath);
+		try {
+			// 执行getMethod
+			int statusCode = httpClient.executeMethod(getMethod);
+			if (statusCode != HttpStatus.SC_OK) {
+				System.err.println("Method failed: " + getMethod.getStatusLine());
+			}
+			// 读取内容
+			String picName = savePath + "mydown.jpg";
+			InputStream inputStream = getMethod.getResponseBodyAsStream();
+			OutputStream outStream = new FileOutputStream(picName);
+			IOUtils.copy(inputStream, outStream);
+			outStream.close();
+			System.out.println(picName + "OK!");
+		} catch (Exception e) {
+			e.printStackTrace();
+		} finally {
+			// 释放连接
+			getMethod.releaseConnection();
+		}
+	}
 }

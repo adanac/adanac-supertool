@@ -122,6 +122,5 @@ public class JsonConvertUtil {
 	}
 
 	public static void main(String[] args) {
-
 	}
 }

@@ -1,4 +1,4 @@
-package com.adanac.tool.supertool.sfunc.queryphone;
+package com.adanac.tool.supertool.sfunc.bdapi;
 
 /**
 * @ClassName: HttpClientUtil 

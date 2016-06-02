@@ -1,4 +1,4 @@
-package com.adanac.tool.supertool.j2se;
+package com.adanac.tool.supertool.j2se.io;
 
 import java.io.File;
 import java.io.FileInputStream;
@@ -13,6 +13,19 @@ import java.util.Properties;
  * 252878950@qq.com
  */
 public class PropertiesUtils {
+
+	public static void main(String[] args) {
+		String filePath = "conf/config.properties";
+		Properties readProperties;
+		try {
+			readProperties = readProperties(filePath);
+			System.out.println(readProperties.getProperty("baiDU_apiKey"));
+		} catch (FileNotFoundException e) {
+			e.printStackTrace();
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+	}
 
 	/**
 	 * 读取Properties配置文件内容
