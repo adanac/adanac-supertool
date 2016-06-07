@@ -9,6 +9,8 @@ import java.security.DigestException;
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
 
+import com.adanac.tool.supertool.j2se.string.StringUtils;
+
 /**
  * MD5工具类
  * @author <a href="http://www.xdemo.org/">http://www.xdemo.org/</a>
