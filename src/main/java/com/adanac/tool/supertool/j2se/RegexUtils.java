@@ -140,4 +140,14 @@ public class RegexUtils {
 		return false;
 	}
 
+	public String retRegular(String pattern, String matcher) {
+		Pattern p = Pattern.compile(pattern, Pattern.CASE_INSENSITIVE);
+		Matcher m = p.matcher(matcher);
+		if (m.find()) { // 如果读到
+			return m.group();// 返回捕获的数据
+		} else {
+			return ""; // 否则返回一个空值
+		}
+	}
+
 }
