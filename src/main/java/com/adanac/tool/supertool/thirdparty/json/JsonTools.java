@@ -5,10 +5,14 @@ import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.net.HttpURLConnection;
 import java.net.URL;
+import java.util.ArrayList;
+import java.util.List;
 
+import com.adanac.framework.web.controller.BaseResult;
+import com.adanac.tool.supertool.entity.User;
 import com.alibaba.fastjson.JSON;
-
-import net.sf.json.JSONObject;
+import com.alibaba.fastjson.JSONArray;
+import com.alibaba.fastjson.JSONObject;
 
 public class JsonTools {
 
@@ -19,13 +23,13 @@ public class JsonTools {
 	 * @return
 	 */
 	public static String objectToJson(Object obj) {
-		JSONObject json = JSONObject.fromObject(obj);// 将java对象转换为json对象
+		net.sf.json.JSONObject json = net.sf.json.JSONObject.fromObject(obj);// 将java对象转换为json对象
 		String str = json.toString();// 将json对象转换为字符串
 		return str;
 	}
 
 	public static Object getValueFromJson(String jsonStr) {
-		JSONObject jsonObj = JSONObject.fromObject(jsonStr);
+		net.sf.json.JSONObject jsonObj = net.sf.json.JSONObject.fromObject(jsonStr);
 		return jsonObj.getJSONObject("states").getJSONObject("rect1").get("type");
 	}
 
@@ -97,8 +101,46 @@ public class JsonTools {
 		System.out.println(object.toString());
 	}
 
+	public static String queryCategoryHtml(Long companyId, String classPath) {
+		BaseResult baseResult = new BaseResult();
+		List<User> userList = new ArrayList<User>();
+		for (int i = 0; i < 3; i++) {
+			User user = new User("allen" + i + 1, "psd" + i + 1);
+			userList.add(user);
+		}
+		String jsonList = ParseJson.Objects2Json(userList);
+		baseResult.setContent(jsonList);
+		if (null == baseResult.getContent()) {
+			return "";
+		}
+		JSONArray arrary = (JSONArray) baseResult.getContent();
+		StringBuilder sb = new StringBuilder();
+		if (classPath == null || classPath.trim().equals("")) {
+			arrary.forEach(e -> {
+				JSONObject jobj = JSONObject.parseObject(e.toString());
+				String temp = jobj.getLong("navId") + ":" + jobj.getString("navName");
+				String name = jobj.getString("navName");
+				sb.append("<option  value=\"" + temp + "\">" + name + "</option>");
+			});
+		} else {
+			arrary.forEach(e -> {
+				JSONObject jobj = JSONObject.parseObject(e.toString());
+				String temp = jobj.getLong("navId") + ":" + jobj.getString("navName");
+				String name = jobj.getString("navName");
+				if (classPath.indexOf(temp) > -1) {
+					sb.append("<option  value=\"" + temp + "\" selected=\"selected\">" + name + "</option>");
+				} else {
+					sb.append("<option  value=\"" + temp + "\">" + name + "</option>");
+				}
+			});
+		}
+		return sb.toString();
+	}
+
 	public static void main(String[] args) {
-		testGetValueFromJson();
+		// testGetValueFromJson();
+		String temp = queryCategoryHtml(1000L, "baidu.com");
+		System.out.println(temp);
 	}
 
 }

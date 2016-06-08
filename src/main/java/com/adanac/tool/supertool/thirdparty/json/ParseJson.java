@@ -39,7 +39,7 @@ public class ParseJson {
 	}
 
 	// 將java對象數組轉換為字符串
-	public String Objects2Json(List<Person> objList) {
+	public static String Objects2Json(List<?> objList) {
 		JSONArray json = JSONArray.fromObject(objList);// 将java对象转换为json对象
 		String str = json.toString();// 将json对象转换为字符串
 		return str;
