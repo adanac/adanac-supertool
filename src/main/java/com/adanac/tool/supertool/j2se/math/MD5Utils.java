@@ -1,4 +1,4 @@
-package com.adanac.tool.supertool.j2se;
+package com.adanac.tool.supertool.j2se.math;
 
 import java.io.File;
 import java.io.FileInputStream;

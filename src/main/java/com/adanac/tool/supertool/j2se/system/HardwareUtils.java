@@ -4,7 +4,7 @@
  * 华东工程中心（无锡）
  * 2015版权所有
  */
-package com.adanac.tool.supertool.j2se;
+package com.adanac.tool.supertool.j2se.system;
 
 import java.io.BufferedReader;
 import java.io.File;

@@ -1,4 +1,4 @@
-package com.adanac.tool.supertool.j2se;
+package com.adanac.tool.supertool.thirdparty.zip;
 
 import java.io.BufferedOutputStream;
 import java.io.File;

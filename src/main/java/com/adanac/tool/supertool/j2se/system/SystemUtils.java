@@ -1,4 +1,4 @@
-package com.adanac.tool.supertool.j2se;
+package com.adanac.tool.supertool.j2se.system;
 
 /**
  * 操作系统判断
@@ -48,6 +48,10 @@ public class SystemUtils {
 	 */
 	public static String getOSName() {
 		return osname;
+	}
+
+	public static void main(String[] args) {
+		System.out.println(getOSName());
 	}
 
 }

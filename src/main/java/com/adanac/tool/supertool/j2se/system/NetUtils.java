@@ -1,4 +1,4 @@
-package com.adanac.tool.supertool.j2se;
+package com.adanac.tool.supertool.j2se.system;
 
 import java.io.BufferedReader;
 import java.io.IOException;
@@ -86,6 +86,10 @@ public class NetUtils {
 			res = null;
 		}
 		return res;
+	}
+
+	public static void main(String[] args) {
+		System.out.println(ping("baidu.com"));
 	}
 
 }

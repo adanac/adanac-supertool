@@ -1,6 +1,6 @@
 package com.adanac.tool.supertool.common;
 
-public class MD5 {
+public class AdanacMD5 {
 
 	public static String getMD5(byte[] source) {
 		String s = null;

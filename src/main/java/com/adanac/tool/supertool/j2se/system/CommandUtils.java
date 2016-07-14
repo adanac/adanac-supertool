@@ -1,6 +1,7 @@
-package com.adanac.tool.supertool.j2se;
+package com.adanac.tool.supertool.j2se.system;
 
 import java.io.BufferedReader;
+import java.io.IOException;
 import java.io.InputStreamReader;
 import java.util.Properties;
 
@@ -17,7 +18,7 @@ public class CommandUtils {
 	 * @return String 执行结果
 	 * @throws Exception
 	 */
-	public static String execute(String commandLine) throws Exception {
+	public static String execute(String commandLine) {
 
 		String[] cmd = new String[3];
 		Properties props = System.getProperties();
@@ -35,14 +36,24 @@ public class CommandUtils {
 			charset = "UTF-8";
 		}
 
-		Process ps = Runtime.getRuntime().exec(cmd);
-		String line = null;
-		BufferedReader input = new BufferedReader(new InputStreamReader(ps.getInputStream(), charset));
-		while ((line = input.readLine()) != null) {
-			result += line + "\n";
+		Process ps;
+		try {
+			ps = Runtime.getRuntime().exec(cmd);
+			String line = null;
+			BufferedReader input = new BufferedReader(new InputStreamReader(ps.getInputStream(), charset));
+			while ((line = input.readLine()) != null) {
+				result += line + "\n";
+			}
+			input.close();
+			ps.destroy();
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
 		}
-		input.close();
-		ps.destroy();
 		return result;
+	}
+
+	public static void main(String[] args) {
+		System.out.println(execute("calc"));
 	}
 }

@@ -27,7 +27,7 @@ import org.apache.poi.xssf.usermodel.XSSFCellStyle;
 import org.apache.poi.xssf.usermodel.XSSFColor;
 import org.apache.poi.xssf.usermodel.XSSFFont;
 
-import com.adanac.tool.supertool.j2se.RandomUtils;
+import com.adanac.tool.supertool.j2se.math.RandomUtils;
 import com.adanac.tool.supertool.thirdparty.gson.GsonTools;
 import com.google.gson.JsonArray;
 import com.google.gson.JsonElement;

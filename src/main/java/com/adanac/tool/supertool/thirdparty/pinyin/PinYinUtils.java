@@ -1,4 +1,4 @@
-package com.adanac.tool.supertool.thirdparty;
+package com.adanac.tool.supertool.thirdparty.pinyin;
 
 import net.sourceforge.pinyin4j.PinyinHelper;
 import net.sourceforge.pinyin4j.format.HanyuPinyinCaseType;

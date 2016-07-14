@@ -1,4 +1,4 @@
-package com.adanac.tool.supertool.thirdparty;
+package com.adanac.tool.supertool.thirdparty.zip;
 
 import java.io.BufferedInputStream;
 import java.io.BufferedOutputStream;

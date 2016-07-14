@@ -1,4 +1,4 @@
-package com.adanac.tool.supertool.j2se;
+package com.adanac.tool.supertool.j2se.system;
 
 import java.io.BufferedReader;
 import java.io.IOException;
@@ -67,6 +67,15 @@ public class RunTimeUtils {
 		input.readLine();
 		input.close();
 		process.destroy();
+	}
+
+	public static void main(String[] args) {
+		try {
+			run("calc");
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 	}
 
 }

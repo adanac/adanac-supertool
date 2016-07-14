@@ -1,4 +1,4 @@
-package com.adanac.tool.supertool.j2se;
+package com.adanac.tool.supertool.j2se.reflect;
 
 import java.io.File;
 import java.io.IOException;
@@ -60,6 +60,14 @@ public class PathUtils {
 		filePath = filePath.substring(0, filePath.lastIndexOf("/") + 1);
 
 		return new File(filePath).getAbsolutePath();
+	}
+
+	public static void main(String[] args) {
+		try {
+			System.out.println(getJarPath());
+		} catch (Exception e) {
+			// TODO: handle exception
+		}
 	}
 
 }

@@ -1,4 +1,4 @@
-package com.adanac.tool.supertool.j2se;
+package com.adanac.tool.supertool.j2se.reflect;
 
 import java.lang.reflect.Field;
 import java.lang.reflect.InvocationTargetException;
