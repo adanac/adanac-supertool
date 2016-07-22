@@ -2,33 +2,16 @@ package com.adanac.tool.supertool.entity;
 
 import java.io.Serializable;
 
-public class User implements Serializable {
+public class UserDto implements Serializable {
 	/**
 	 * 
 	 */
-	private static final long serialVersionUID = -61956194652745890L;
+	private static final long serialVersionUID = -2392811205898246815L;
 	private Integer id;
 	private String name;
 	private String password;
 	private int age;
-	private Skill skill;
-
-	public User() {
-		super();
-	}
-
-	public User(String name, String password) {
-		super();
-		this.name = name;
-		this.password = password;
-	}
-
-	public User(String name, String password, int age) {
-		super();
-		this.name = name;
-		this.password = password;
-		this.age = age;
-	}
+	private int sex;
 
 	public Integer getId() {
 		return id;
@@ -62,17 +45,18 @@ public class User implements Serializable {
 		this.age = age;
 	}
 
-	public Skill getSkill() {
-		return skill;
+	public int getSex() {
+		return sex;
 	}
 
-	public void setSkill(Skill skill) {
-		this.skill = skill;
+	public void setSex(int sex) {
+		this.sex = sex;
 	}
 
 	@Override
 	public String toString() {
-		return "User [id=" + id + ", name=" + name + ", password=" + password + ", age=" + age + "]";
+		return "UserDto [id=" + id + ", name=" + name + ", password=" + password + ", age=" + age + ", sex=" + sex
+				+ "]";
 	}
 
 }

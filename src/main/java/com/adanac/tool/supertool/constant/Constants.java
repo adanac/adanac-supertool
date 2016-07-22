@@ -79,4 +79,40 @@ public interface Constants {
 		public static final String STR_9 = "9";
 
 	}
+
+	/**
+	 * 文件常量
+	 */
+	public static class ExcleFile {
+		/**
+		 * 模板路径
+		 */
+		public static final String EXCEL_FILEPATH = "excelFile/卡号模板.xlsx";
+
+		/**
+		 * 文件名称
+		 */
+		public static final String EXCEL_FILENAME = "卡号模板.xlsx";
+
+		/**
+		 * 导出文件名称
+		 */
+		public static final String EXCEL_EXPORT = "FailedCard.xlsx";
+
+		/**
+		 * 文件存放路径
+		 */
+		public static final String FILEPATH = "excelFile\\failVoucher\\";
+	}
+
+	/**
+	 * 线程常量
+	 */
+	public static class threadConstants {
+		/**
+		 * 分页查询记录数
+		 */
+		public static final int PAGE_SIZE = 1000;
+
+	}
 }

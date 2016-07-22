@@ -67,8 +67,9 @@
 		</dependency>
 		<!-- poi -->
 		<dependency>
-			<groupId>org.apache.poi</groupId>
-			<artifactId>poi-ooxml</artifactId>
+		    <groupId>org.apache.poi</groupId>
+		    <artifactId>poi-ooxml</artifactId>
+		    <version>3.10-FINAL</version>
 		</dependency>
 		<dependency>
 			<groupId>org.simpleframework</groupId>
@@ -165,6 +166,31 @@
 			<artifactId>poi</artifactId>
 			<version>3.5-FINAL</version>
 		</dependency>
+		<dependency>
+			<groupId>com.jcabi</groupId>
+			<artifactId>jcabi-aspects</artifactId>
+			<version>0.22.5</version>
+		</dependency>
+		
+		<!-- mq -->
+
+		<dependency>
+			<groupId>org.apache.activemq</groupId>
+			<artifactId>activemq-client</artifactId>
+			<version>5.11.1</version>
+		</dependency>
+
+		<dependency>
+			<groupId>org.apache.activemq</groupId>
+			<artifactId>activemq-jms-pool</artifactId>
+			<version>5.11.1</version>
+		</dependency>
+
+		<dependency>
+			<groupId>commons-pool</groupId>
+			<artifactId>commons-pool</artifactId>
+		</dependency>
+		
 	</dependencies>
 
 	<build>

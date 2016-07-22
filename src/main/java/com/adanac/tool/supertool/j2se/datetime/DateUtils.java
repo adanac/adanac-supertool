@@ -1,4 +1,4 @@
-package com.adanac.tool.supertool.j2se.date;
+package com.adanac.tool.supertool.j2se.datetime;
 
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
