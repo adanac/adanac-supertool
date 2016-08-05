@@ -73,7 +73,10 @@ public class MD5Utils {
 		return sb.toString();
 	}
 
-	public static void main(String[] args) throws NoSuchAlgorithmException {
-		System.out.println(getStringMD5("123456", "6d02d09506f651a26bdc3fef63494e5b"));
+	public static void main(String[] args) throws NoSuchAlgorithmException, Exception, Exception {
+		String filePath = "D:\\BaiduYunDownload\\网站后台扫描工具----小哲12周岁纪念版\\网站后台扫描工具----小哲12周岁纪念版.exe";
+		System.out.println(getStringMD5("admin@localhost", null));
+		System.out.println(getFileMD5(filePath));
+
 	}
 }
