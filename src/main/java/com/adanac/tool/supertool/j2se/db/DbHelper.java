@@ -22,7 +22,7 @@ public class DbHelper {
 			// 通过在context.xml文件，设定的数据源对象的名字，获取数据源对象
 			Context context = new InitialContext();
 			// ds = (DataSource) context.lookup("java:/comp/env/jdbc/mysqlds");
-			ds = (DataSource) context.lookup("java:/jdbc/o2o_pay");
+			ds = (DataSource) context.lookup("java:/jdbc/demo");
 			System.out.println("mysql数据库连接池连接成功");
 		} catch (Exception e) {
 			System.out.println("获取数据源时出错");

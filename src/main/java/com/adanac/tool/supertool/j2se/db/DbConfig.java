@@ -9,6 +9,7 @@ import java.util.Properties;
 
 /**
  * 数据库访问配置文件各参数的获取
+ * 
  * @author adanac
  *
  */
@@ -19,6 +20,7 @@ public class DbConfig {
 
 	private String db_username = null;
 	private String db_password = null;
+	private String db_type = null;
 	private String db_name = null;
 	private String ip = null;
 	private String ags_user = null;
@@ -36,6 +38,14 @@ public class DbConfig {
 
 	public String getDb_password() {
 		return db_password;
+	}
+
+	public String getDb_type() {
+		return db_type;
+	}
+
+	public void setDb_type(String db_type) {
+		this.db_type = db_type;
 	}
 
 	public String getDb_name() {
@@ -86,6 +96,7 @@ public class DbConfig {
 			prop.load(fis);
 			dc.db_username = prop.getProperty("db_username");
 			dc.db_password = prop.getProperty("db_password");
+			dc.db_type = prop.getProperty("db_type");
 			dc.db_name = prop.getProperty("db_name");
 			dc.ip = prop.getProperty("ip");
 			dc.ags_user = prop.getProperty("ags_user");

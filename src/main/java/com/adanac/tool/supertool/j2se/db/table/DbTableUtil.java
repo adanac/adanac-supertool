@@ -6,14 +6,18 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.ResultSetMetaData;
 import java.sql.SQLException;
+import java.sql.Statement;
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 import com.adanac.tool.supertool.j2se.db.MySql;
 
 public class DbTableUtil {
 	/**
 	 * 根据数据库表名获取表各字段的详细信息
+	 * 
 	 * @param tableName
 	 * @return
 	 */
@@ -33,6 +37,7 @@ public class DbTableUtil {
 					int columnCount = data.getColumnCount();
 					// 获得指定列的列名
 					String columnName = data.getColumnName(i);
+					String columnRemark = data.getColumnLabel(i);
 					// 获得指定列的列值
 					String columnValue = rs.getString(i);
 					// 获得指定列的数据类型
@@ -67,6 +72,7 @@ public class DbTableUtil {
 					boolean isSearchable = data.isSearchable(i);
 					System.out.println(columnCount);
 					System.out.println("获得列" + i + "的字段名称:" + columnName);
+					System.out.println("获得列" + i + "的字段注释:" + columnRemark);
 					System.out.println("获得列" + i + "的字段值:" + columnValue);
 					System.out.println("获得列" + i + "的类型,返回SqlType中的编号:" + columnType);
 					System.out.println("获得列" + i + "的数据类型名:" + columnTypeName);
@@ -92,6 +98,7 @@ public class DbTableUtil {
 
 	/**
 	 * 根据数据库表名获取字段名的集合
+	 * 
 	 * @param tableName
 	 * @return
 	 */
@@ -121,6 +128,7 @@ public class DbTableUtil {
 
 	/**
 	 * 根据数据库名获取表名的集合
+	 * 
 	 * @param dbName
 	 * @return
 	 */
@@ -142,15 +150,50 @@ public class DbTableUtil {
 		return res;
 	}
 
-	public static void main(String[] args) {
-		// String tableName = "tab_common";
-		// List<String> names = getColNamesByTableName(tableName);
-		// System.out.println(names.size());
-		// open connection
+	/**
+	 * 获得某表中所有字段的注释
+	 * 
+	 * @param tableName
+	 * @return
+	 * @throws Exception
+	 */
+	public static Map<String, Object> getColumnCommentByTableName(List<String> tableNameList) throws Exception {
+		Map<String, Object> map = new HashMap<String, Object>();
 		MySql mysql = new MySql();
 		Connection conn = mysql.getConn();
-		List<String> tabNames = getTabNamesBydbName(conn);
-		mysql.closeConn(conn);
-		System.out.println(tabNames.size());
+		Statement stmt = conn.createStatement();
+		for (int i = 0; i < tableNameList.size(); i++) {
+			String table = (String) tableNameList.get(i);
+			ResultSet rs = stmt.executeQuery("show full columns from " + table);
+			System.out.println("【" + table + "】");
+			// if (rs != null && rs.next()) {
+			while (rs.next()) {
+				System.out.println("字段名称：" + rs.getString("Field") + "\t" + "字段注释：" + rs.getString("Comment"));
+				System.out.println(rs.getString("Field") + "\t:\t" + rs.getString("Comment"));
+				map.put(rs.getString("Field"), rs.getString("Comment"));
+			}
+			// }
+			rs.close();
+		}
+		stmt.close();
+		conn.close();
+		return map;
+	}
+
+	public static void main(String[] args) throws Exception {
+		String tableName = "tab_common";
+		List<String> tableNameList = new ArrayList<String>();
+		tableNameList.add(tableName);
+		getColumnCommentByTableName(tableNameList);
+		// getTableInfoByName(tableName);
+		// List<String> names = getColNamesByTableName(tableName);
+		// System.out.println(names.size());
+
+		// open connection
+		// MySql mysql = new MySql();
+		// Connection conn = mysql.getConn();
+		// List<String> tabNames = getTabNamesBydbName(conn);
+		// mysql.closeConn(conn);
+		// System.out.println(tabNames.size());
 	}
 }

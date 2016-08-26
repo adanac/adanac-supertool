@@ -27,14 +27,17 @@ public class MySql {
 	// 执行完关闭数据库连接
 	public void closeConn(Connection conn) {
 		try {
-			conn.close();
+			if (conn != null) {
+				conn.close();
+			}
 		} catch (SQLException e) {
 			e.printStackTrace();
 		}
 	}
 
 	/**
-	 * 创建一个插入数据的方法  executeUpdate()
+	 * 创建一个插入数据的方法 executeUpdate()
+	 * 
 	 * @param insertSQl
 	 */
 	public void datatoMySql(Connection conn, String insertSQl) {
@@ -56,6 +59,7 @@ public class MySql {
 
 	/**
 	 * 创建一个用于select查看数据的方法 executeQuery();
+	 * 
 	 * @param strSelect
 	 * @return ResultSet
 	 */

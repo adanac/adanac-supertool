@@ -10,10 +10,11 @@ import javax.naming.NamingException;
 import javax.sql.DataSource;
 
 /**
-* 数据库连接工具类
-* @author adanac
-* @version 1.0
-*/
+ * 数据库连接工具类
+ * 
+ * @author adanac
+ * @version 1.0
+ */
 public class JdbcConnection {
 
 	// 定义线程本地变量，每个线程访问它都会获得不同的对象
@@ -21,15 +22,16 @@ public class JdbcConnection {
 	private static ThreadLocal<Connection> currentConnection = new ThreadLocal<Connection>();
 	private static String username = null; // 用户名
 	private static String password = null; // 密码
+	private static String dbType = null;// 数据库类型
 	private static String dbName = null; // 数据库名称
 	private static String ip = null; // 数据库服务器IP地址
 	private static String resourceName = null; // 为null时不使用连接池，
 												// jdbc/mysql或jdbc/oracle或jdbc/derby
-	private static String databaseType = "mysql";
 
 	private static void initParams() {
 		username = DbConfig.getInstance().getDb_username();
 		password = DbConfig.getInstance().getDb_password();
+		dbType = DbConfig.getInstance().getDb_type();
 		dbName = DbConfig.getInstance().getDb_name();
 		ip = DbConfig.getInstance().getIp();
 	}
@@ -38,16 +40,17 @@ public class JdbcConnection {
 	 * 
 	 * @return 得到一个数据库连接
 	 * @throws SQLException
-	*/
+	 */
 	public static Connection getConnection() throws SQLException {
+		initParams();// 加载配置文件获取属性值
 		Connection conn = currentConnection.get();
 		if (conn == null) {
 			if (null == resourceName) {
-				if ("mysql".equals(databaseType.toLowerCase())) {
+				if ("mysql".equals(dbType.toLowerCase())) {
 					conn = getMySqlConnection();
-				} else if ("oracle".equals(databaseType.toLowerCase())) {
+				} else if ("oracle".equals(dbType.toLowerCase())) {
 					conn = getOracleConnection();
-				} else if ("derby".equals(databaseType.toLowerCase())) {
+				} else if ("derby".equals(dbType.toLowerCase())) {
 					conn = getDerbyConnection();
 				} else {
 					System.out.println("在 JdbcConnection.java 中数据库类型没有设置");
@@ -63,8 +66,9 @@ public class JdbcConnection {
 
 	/**
 	 * 关闭Oracle数据库连接
+	 * 
 	 * @throws SQLException
-	*/
+	 */
 	public static void closeConnection() throws SQLException {
 		Connection conn = currentConnection.get();
 		conn.close();
@@ -73,7 +77,6 @@ public class JdbcConnection {
 
 	// 获得Oracle数据库连接
 	private static Connection getOracleConnection() {
-		initParams();
 		Connection conn = null;
 		try {
 			Class.forName("oracle.jdbc.driver.OracleDriver").newInstance(); // 加载驱动
@@ -93,7 +96,6 @@ public class JdbcConnection {
 
 	// 获得MySql数据库连接
 	private static Connection getMySqlConnection() {
-		initParams();
 		Connection conn = null;
 		try {
 			Class.forName("com.mysql.jdbc.Driver").newInstance(); // 加载驱动
@@ -114,7 +116,6 @@ public class JdbcConnection {
 
 	// 获取Derby数据库连接
 	private static Connection getDerbyConnection() {
-		initParams();
 		Connection conn = null;
 		try {
 			Class.forName("org.apache.derby.jdbc.ClientDriver").newInstance(); // 加载驱动
