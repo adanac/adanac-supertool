@@ -23,11 +23,6 @@ public class DbConfig {
 	private String db_type = null;
 	private String db_name = null;
 	private String ip = null;
-	private String ags_user = null;
-	private String ags_password = null;
-	private String ags_domain = null;
-	private String ags_host = null;
-	private String ags_servicename = null;
 
 	private DbConfig() {
 	}
@@ -56,26 +51,6 @@ public class DbConfig {
 		return ip;
 	}
 
-	public String getAgs_user() {
-		return ags_user;
-	}
-
-	public String getAgs_password() {
-		return ags_password;
-	}
-
-	public String getAgs_domain() {
-		return ags_domain;
-	}
-
-	public String getAgs_host() {
-		return ags_host;
-	}
-
-	public String getAgs_servicename() {
-		return ags_servicename;
-	}
-
 	public static DbConfig getInstance() {
 		if (instance == null) {
 			instance = new DbConfig().getNewDbConfig();
@@ -99,11 +74,6 @@ public class DbConfig {
 			dc.db_type = prop.getProperty("db_type");
 			dc.db_name = prop.getProperty("db_name");
 			dc.ip = prop.getProperty("ip");
-			dc.ags_user = prop.getProperty("ags_user");
-			dc.ags_password = prop.getProperty("ags_password");
-			dc.ags_domain = prop.getProperty("ags_domain");
-			dc.ags_host = prop.getProperty("ags_host");
-			dc.ags_servicename = prop.getProperty("ags_servicename");
 		} catch (URISyntaxException e) {
 			e.printStackTrace();
 		} catch (FileNotFoundException e) {

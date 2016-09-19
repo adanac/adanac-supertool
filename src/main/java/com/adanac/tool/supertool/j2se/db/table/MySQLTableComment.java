@@ -14,7 +14,7 @@ import java.util.Set;
 /**
  * 读取mysql某数据库下表的注释信息
  * 
- * @author xxx
+ * @author adanac
  */
 public class MySQLTableComment {
 	public static Connection getMySQLConnection() throws Exception {
@@ -29,8 +29,8 @@ public class MySQLTableComment {
 	 * @return
 	 * @throws Exception
 	 */
-	public static List getAllTableName() throws Exception {
-		List tables = new ArrayList();
+	public static List<String> getAllTableName() throws Exception {
+		List<String> tables = new ArrayList<String>();
 		Connection conn = getMySQLConnection();
 		Statement stmt = conn.createStatement();
 		ResultSet rs = stmt.executeQuery("SHOW TABLES ");
@@ -51,8 +51,8 @@ public class MySQLTableComment {
 	 * @return
 	 * @throws Exception
 	 */
-	public static Map getCommentByTableName(List tableName) throws Exception {
-		Map map = new HashMap();
+	public static Map<String, String> getCommentByTableName(List<String> tableName) throws Exception {
+		Map<String, String> map = new HashMap<String, String>();
 		Connection conn = getMySQLConnection();
 		Statement stmt = conn.createStatement();
 		for (int i = 0; i < tableName.size(); i++) {
@@ -77,27 +77,29 @@ public class MySQLTableComment {
 	 * @return
 	 * @throws Exception
 	 */
-	public static void getColumnCommentByTableName(List<String> tableName) throws Exception {
-		Map<String, Object> map = new HashMap<String, Object>();
+	public static Map<String, String> getColumnCommentByTableName(List<String> tableName) throws Exception {
+		Map<String, String> map = new HashMap<String, String>();
 		Connection conn = getMySQLConnection();
 		Statement stmt = conn.createStatement();
 		for (int i = 0; i < tableName.size(); i++) {
 			String table = (String) tableName.get(i);
 			ResultSet rs = stmt.executeQuery("show full columns from " + table);
 			System.out.println("【" + table + "】");
-			// if (rs != null && rs.next()) {
-			// map.put(rs.getString("Field"), rs.getString("Comment"));
-			while (rs.next()) {
-				// System.out.println("字段名称：" + rs.getString("Field") + "\t"+
-				// "字段注释：" + rs.getString("Comment") );
-				System.out.println(rs.getString("Field") + "\t:\t" + rs.getString("Comment"));
+			if (rs != null) {
+				while (rs.next()) {
+					// System.out.println("字段名称：" + rs.getString("Field") +
+					// "\t"+
+					// "字段注释：" + rs.getString("Comment") );
+					map.put(rs.getString("Field"), rs.getString("Comment"));
+					// System.out.println(rs.getString("Field") + "\t:\t" +
+					// rs.getString("Comment"));
+				}
 			}
-			// }
 			rs.close();
 		}
 		stmt.close();
 		conn.close();
-		// return map;
+		return map;
 	}
 
 	/**
@@ -119,10 +121,10 @@ public class MySQLTableComment {
 	}
 
 	public static void main(String[] args) throws Exception {
-		List tables = getAllTableName();
-		Map tablesComment = getCommentByTableName(tables);
-		Set names = tablesComment.keySet();
-		Iterator iter = names.iterator();
+		List<String> tables = getAllTableName();
+		Map<String, String> tablesComment = getCommentByTableName(tables);
+		Set<String> names = tablesComment.keySet();
+		Iterator<String> iter = names.iterator();
 		while (iter.hasNext()) {
 			String name = (String) iter.next();
 			System.out.println("Table Name: " + name + ", Comment: " + tablesComment.get(name));

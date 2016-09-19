@@ -1,79 +1,31 @@
 package com.adanac.tool.supertool.j2se.reflect;
 
-import org.apache.commons.beanutils.BeanUtils;
-import org.junit.Test;
+import java.lang.reflect.InvocationTargetException;
 
-import com.adanac.tool.supertool.entity.Skill;
-import com.adanac.tool.supertool.entity.User;
-import com.adanac.tool.supertool.entity.UserDto;
+import org.apache.commons.beanutils.BeanUtils;
 
 /**
- * 对象属性的拷贝
+ * 调用org.apache.commons.beanutils.BeanUtils.copyProperties(Object,
+ * Object)方法实现对象属性的拷贝
  */
 public class CopyUtils {
-	/*********	在相同的对象间拷贝 *******************/
-	@Test
-	public void test_copy1() throws Exception {
-		User u = new User();
-		u.setAge(1);
-		u.setId(101);
-		u.setName("allen");
-		u.setPassword("pwd1");
 
-		User u2 = new User();
-		BeanUtils.copyProperties(u2, u);
-		System.out.println(u2.toString());
-	}
-
-	@Test
-	public void test_copy2() throws Exception {
-		User u = new User();
-		u.setAge(1);
-		u.setId(101);
-		u.setName("allen");
-		u.setPassword("pwd1");
-		Skill s1 = new Skill();
-		s1.setSid("s101");
-		s1.setSname("吃饭");
-		s1.setSlevel(2);
-		u.setSkill(s1);
-		User u2 = new User();
-		BeanUtils.copyProperties(u2, u);
-		System.out.println(u2.getSkill().toString());
-	}
-
-	/***********  在不同的对象间拷贝 ******************************/
-	@Test
-	public void test_copy3() throws Exception {
-		User u = new User();
-		u.setAge(1);
-		u.setId(101);
-		u.setName("allen");
-		u.setPassword("pwd1");
-
-		UserDto user = new UserDto();
-		BeanUtils.copyProperties(user, u);
-		System.out.println(user.toString());
-	}
-
-	@Test
-	public void test_copy4() throws Exception {
-		User u = new User();
-		u.setAge(1);
-		u.setId(101);
-		u.setName("allen");
-		u.setPassword("pwd1");
-
-		Skill s1 = new Skill();
-		s1.setSid("s101");
-		s1.setSname("吃饭");
-		s1.setSlevel(2);
-		u.setSkill(s1);
-
-		UserDto user = new UserDto();
-		BeanUtils.copyProperties(user, u);
-		user.setSex(8);
-		System.out.println(user.toString());
+	/**
+	 * 将源对象的属性拷贝到目标对象中
+	 * 
+	 * @param source
+	 *            源对象
+	 * @param target
+	 *            目标对象
+	 */
+	public static void copyProperties(Object source, Object target) {
+		try {
+			BeanUtils.copyProperties(target, source);
+		} catch (IllegalAccessException e) {
+			e.printStackTrace();
+		} catch (InvocationTargetException e) {
+			e.printStackTrace();
+		}
 	}
 
 }

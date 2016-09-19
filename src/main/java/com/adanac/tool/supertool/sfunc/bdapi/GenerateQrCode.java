@@ -13,12 +13,11 @@ import com.alibaba.fastjson.JSON;
 import com.alibaba.fastjson.JSONObject;
 
 /**
- * 生成二维码图片，并下载图片
- * Created by allen
+ * 生成二维码图片，并下载图片 Created by allen
  */
 public class GenerateQrCode {
 
-	private static final String filePath = "conf/config.properties";
+	private static final String filePath = "conf/allenKey.properties";
 	private static String key = "baiDU_apiKey";
 	private static String apiKey = CommonUtil.getPropertyValue(filePath, key);
 
@@ -32,6 +31,7 @@ public class GenerateQrCode {
 
 	/**
 	 * 生成二维码
+	 * 
 	 * @param content
 	 * @return
 	 */

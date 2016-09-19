@@ -4,8 +4,6 @@ import java.lang.reflect.Field;
 import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;
 
-import com.adanac.tool.supertool.thirdparty.excel.User;
-
 /**
  * Java反射工具类
  * 
@@ -277,14 +275,6 @@ public class ReflectUtils {
 			IllegalArgumentException, InvocationTargetException {
 		Method _m = clazzInstance.getClass().getMethod(method, paramClasses);
 		return _m.invoke(clazzInstance, params);
-	}
-
-	@SuppressWarnings("unchecked")
-	public static void main(String[] args) throws Exception {
-		// getFields(User.class);
-		User u = new User();
-		invoke(u, "setName", new Class[] { String.class }, new Object[] { "xx发大水法大水法x" });
-		System.out.println(getFieldValue(u, "name"));
 	}
 
 }

@@ -9,6 +9,7 @@ import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.Map;
 
@@ -21,7 +22,9 @@ public class DbTableUtil {
 	 * @param tableName
 	 * @return
 	 */
-	public static void getTableInfoByName(String tableName) {
+	public static List<Map<String, Object>> getTableInfoByName(String tableName) {
+		List<Map<String, Object>> list = new ArrayList<>();
+		Map<String, Object> map = new LinkedHashMap<>();
 		// open connection
 		MySql mysql = new MySql();
 		Connection conn = mysql.getConn();
@@ -31,12 +34,15 @@ public class DbTableUtil {
 			stmt = conn.prepareStatement(sql);
 			ResultSet rs = stmt.executeQuery(sql);
 			ResultSetMetaData data = rs.getMetaData();
+			// 获得所有列的数目及实际列数
+			int columnCount = data.getColumnCount();
+			map.put("columnCount", columnCount);
 			if (rs.next()) {
 				for (int i = 1; i <= data.getColumnCount(); i++) {
-					// 获得所有列的数目及实际列数
-					int columnCount = data.getColumnCount();
+					Map<String, Object> colmap = new LinkedHashMap<String, Object>();
 					// 获得指定列的列名
 					String columnName = data.getColumnName(i);
+					// 获得指定列的注释
 					String columnRemark = data.getColumnLabel(i);
 					// 获得指定列的列值
 					String columnValue = rs.getString(i);
@@ -70,30 +76,33 @@ public class DbTableUtil {
 					boolean isReadOnly = data.isReadOnly(i);
 					// 能否出现在where中
 					boolean isSearchable = data.isSearchable(i);
-					System.out.println(columnCount);
-					System.out.println("获得列" + i + "的字段名称:" + columnName);
-					System.out.println("获得列" + i + "的字段注释:" + columnRemark);
-					System.out.println("获得列" + i + "的字段值:" + columnValue);
-					System.out.println("获得列" + i + "的类型,返回SqlType中的编号:" + columnType);
-					System.out.println("获得列" + i + "的数据类型名:" + columnTypeName);
-					System.out.println("获得列" + i + "所在的Catalog名字:" + catalogName);
-					System.out.println("获得列" + i + "对应数据类型的类:" + columnClassName);
-					System.out.println("获得列" + i + "在数据库中类型的最大字符个数:" + columnDisplaySize);
-					System.out.println("获得列" + i + "的默认的列的标题:" + columnLabel);
-					System.out.println("获得列" + i + "的模式:" + schemaName);
-					System.out.println("获得列" + i + "类型的精确度(类型的长度):" + precision);
-					System.out.println("获得列" + i + "小数点后的位数:" + scale);
-					System.out.println("获得列" + i + "对应的表名:" + tableName2);
-					System.out.println("获得列" + i + "是否自动递增:" + isAutoInctement);
-					System.out.println("获得列" + i + "在数据库中是否为货币型:" + isCurrency);
-					System.out.println("获得列" + i + "是否为空:" + isNullable);
-					System.out.println("获得列" + i + "是否为只读:" + isReadOnly);
-					System.out.println("获得列" + i + "能否出现在where中:" + isSearchable);
+
+					colmap.put("名称", columnName);
+					colmap.put("注释", columnRemark);
+					colmap.put("值", columnValue);
+					colmap.put("类型，返回SqlType的编号", columnType);
+					colmap.put("数据类型名", columnTypeName);
+					colmap.put("所在的Catalog名字", catalogName);
+					colmap.put("对应数据类型的类", columnClassName);
+					colmap.put("在数据库中类型的最大字符个数", columnDisplaySize);
+					colmap.put("默认的列的标题", columnLabel);
+					colmap.put("模式", schemaName);
+					colmap.put("类型的精确度(类型的长度)", precision);
+					colmap.put("小数点后的位数", scale);
+					colmap.put("对应的表名", tableName2);
+					colmap.put("是否自动递增", isAutoInctement);
+					colmap.put("在数据库中是否为货币型", isCurrency);
+					colmap.put("是否为空", isNullable);
+					colmap.put("是否只读", isReadOnly);
+					colmap.put("能否出现在where中", isSearchable);
+					map.put("第" + i + "列【" + columnName + "】的信息", colmap);
 				}
+				list.add(map);
 			}
 		} catch (SQLException e) {
-			System.out.println("数据库连接失败");
+			System.out.println("数据库连接失败:" + e.getMessage());
 		}
+		return list;
 	}
 
 	/**
@@ -166,13 +175,13 @@ public class DbTableUtil {
 			String table = (String) tableNameList.get(i);
 			ResultSet rs = stmt.executeQuery("show full columns from " + table);
 			System.out.println("【" + table + "】");
-			// if (rs != null && rs.next()) {
-			while (rs.next()) {
-				System.out.println("字段名称：" + rs.getString("Field") + "\t" + "字段注释：" + rs.getString("Comment"));
-				System.out.println(rs.getString("Field") + "\t:\t" + rs.getString("Comment"));
-				map.put(rs.getString("Field"), rs.getString("Comment"));
+			if (rs != null) {
+				while (rs.next()) {
+					System.out.println("字段名称：" + rs.getString("Field") + "\t" + "字段注释：" + rs.getString("Comment"));
+					System.out.println(rs.getString("Field") + "\t:\t" + rs.getString("Comment"));
+					map.put(rs.getString("Field"), rs.getString("Comment"));
+				}
 			}
-			// }
 			rs.close();
 		}
 		stmt.close();
@@ -180,20 +189,4 @@ public class DbTableUtil {
 		return map;
 	}
 
-	public static void main(String[] args) throws Exception {
-		String tableName = "tab_common";
-		List<String> tableNameList = new ArrayList<String>();
-		tableNameList.add(tableName);
-		getColumnCommentByTableName(tableNameList);
-		// getTableInfoByName(tableName);
-		// List<String> names = getColNamesByTableName(tableName);
-		// System.out.println(names.size());
-
-		// open connection
-		// MySql mysql = new MySql();
-		// Connection conn = mysql.getConn();
-		// List<String> tabNames = getTabNamesBydbName(conn);
-		// mysql.closeConn(conn);
-		// System.out.println(tabNames.size());
-	}
 }

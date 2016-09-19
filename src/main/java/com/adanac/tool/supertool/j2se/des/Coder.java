@@ -5,11 +5,8 @@ import sun.misc.BASE64Encoder;
 
 /**
  * 基础加密组件
- * 
- * @author wy
- * @version 1.0
- * @since 1.0
  */
+@SuppressWarnings("restriction")
 public abstract class Coder {
 
 	/**

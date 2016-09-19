@@ -11,11 +11,6 @@ import javax.crypto.spec.DESKeySpec;
 
 /**
  * DES安全编码组件
- * 
- * 
- * @author wy
- * @version 1.0
- * @since 1.0
  */
 public abstract class DESCoder extends Coder {
 

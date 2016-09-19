@@ -9,26 +9,15 @@ import java.util.Properties;
 
 /**
  * Properties文件的读写
+ * 
  * @author <a href="http://www.xdemo.org/">http://www.xdemo.org/</a>
- * 252878950@qq.com
+ *         252878950@qq.com
  */
 public class PropertiesUtils {
 
-	public static void main(String[] args) {
-		String filePath = "conf/config.properties";
-		Properties readProperties;
-		try {
-			readProperties = readProperties(filePath);
-			System.out.println(readProperties.getProperty("baiDU_apiKey"));
-		} catch (FileNotFoundException e) {
-			e.printStackTrace();
-		} catch (IOException e) {
-			e.printStackTrace();
-		}
-	}
-
 	/**
 	 * 读取Properties配置文件内容
+	 * 
 	 * @param filePath
 	 * @return Properties
 	 * @throws FileNotFoundException
@@ -42,10 +31,15 @@ public class PropertiesUtils {
 
 	/**
 	 * 写key-value到properties文件 相同的key会被覆盖 追加不同的key-value
-	 * @param key 键
-	 * @param value 值
-	 * @param filePath 文件路径
-	 * @param comment key-value的注释
+	 * 
+	 * @param key
+	 *            键
+	 * @param value
+	 *            值
+	 * @param filePath
+	 *            文件路径
+	 * @param comment
+	 *            key-value的注释
 	 * @throws FileNotFoundException
 	 * @throws IOException
 	 */

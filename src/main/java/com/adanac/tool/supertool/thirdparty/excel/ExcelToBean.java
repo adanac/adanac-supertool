@@ -25,7 +25,7 @@ import org.apache.poi.ss.usermodel.Workbook;
 import org.apache.poi.xssf.usermodel.XSSFCell;
 import org.apache.poi.xssf.usermodel.XSSFWorkbook;
 
-import com.adanac.tool.supertool.j2se.clazz.ReflectUtils;
+import com.adanac.tool.supertool.j2se.reflect.ReflectUtils;
 
 /**
  * @author Goofy Excel内容转化成Bean

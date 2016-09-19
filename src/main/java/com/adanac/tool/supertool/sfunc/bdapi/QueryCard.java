@@ -16,12 +16,11 @@ import com.alibaba.fastjson.JSON;
 import com.alibaba.fastjson.JSONObject;
 
 /**
- * 身份证查询
- * Created by allen
+ * 身份证查询 Created by allen
  */
 public class QueryCard {
 
-	private static final String filePath = "conf/config.properties";
+	private static final String filePath = "conf/allenKey.properties";
 	private static String key = "baiDU_apiKey";
 	private static String apiKey = CommonUtil.getPropertyValue(filePath, key);
 
