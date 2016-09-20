@@ -8,20 +8,23 @@ import java.util.List;
 import org.simpleframework.xml.Serializer;
 import org.simpleframework.xml.core.Persister;
 
-import com.adanac.tool.supertool.test.Order;
-import com.adanac.tool.supertool.test.User;
+import com.adanac.tool.supertool.entity.xml.Order;
+import com.adanac.tool.supertool.entity.xml.User;
 
 /**
  * XML序列化与反序列化工具类
- * @author <a href="http://www.xdemo.org">xdemo.org</a>
- * 2015年2月28日
- * @see <a href="http://simple.sourceforge.net/download/stream/doc/tutorial/tutorial.php">Simple-XML</a>
+ * 
+ * @author <a href="http://www.xdemo.org">xdemo.org</a> 2015年2月28日
+ * @see <a href=
+ *      "http://simple.sourceforge.net/download/stream/doc/tutorial/tutorial.php">
+ *      Simple-XML</a>
  */
 public class XmlUtils {
 
 	/**
 	 * 将Bean转换成XML（需要Simple-XML提供的注解）
-	 * @throws Exception 
+	 * 
+	 * @throws Exception
 	 */
 	public static void beanToXml(Object o, String xmlFile) throws Exception {
 
@@ -32,6 +35,7 @@ public class XmlUtils {
 
 	/**
 	 * Xml转Bean
+	 * 
 	 * @param xml
 	 * @param bean
 	 * @return

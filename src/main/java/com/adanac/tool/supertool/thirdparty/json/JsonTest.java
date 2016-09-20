@@ -5,7 +5,7 @@ import java.util.Collection;
 import java.util.Iterator;
 import java.util.List;
 
-import com.adanac.tool.supertool.test.Student;
+import com.adanac.tool.supertool.entity.Student;
 
 import net.sf.json.JSONArray;
 import net.sf.json.JSONObject;
@@ -53,8 +53,8 @@ public class JsonTest {
 	}
 
 	private static void TestJsonAttribute() {
-		/** 
-		 * 创建json对象并为该对象设置属性 
+		/**
+		 * 创建json对象并为该对象设置属性
 		 */
 		JSONObject jsonObj = new JSONObject();
 		jsonObj.put("Int_att", 25);// 添加int型属性
@@ -82,12 +82,12 @@ public class JsonTest {
 		System.out.println("JSONArray_att:" + jsonObj.getJSONArray("JSONArray_att"));
 	}
 
-	/** 
-	 * java对象与json对象互相转换 
+	/**
+	 * java对象与json对象互相转换
 	 */
 	private static void TestJsonBean() {
-		/** 
-		 * 创建java对象 
+		/**
+		 * 创建java对象
 		 */
 		Student student = new Student();
 		student.setId(1);
@@ -95,19 +95,19 @@ public class JsonTest {
 		student.setSex("man");
 		student.setAge(25);
 		student.setHobby(new String[] { "篮球", "上网", "跑步", "游戏" });
-		/** 
-		 * java对象转换成json对象，并获取json对象属性 
+		/**
+		 * java对象转换成json对象，并获取json对象属性
 		 */
 		JSONObject jsonStu = JSONObject.fromObject(student);
 		System.out.println(jsonStu.toString());
 		System.out.println(jsonStu.getJSONArray("hobby"));
-		/** 
-		 * json对象转换成java对象，并获取java对象属性 
+		/**
+		 * json对象转换成java对象，并获取java对象属性
 		 */
 		Student stu = (Student) JSONObject.toBean(jsonStu, Student.class);
 		System.out.println(stu.getName());
-		/** 
-		 * 创建json对象 
+		/**
+		 * 创建json对象
 		 */
 		JSONObject jsonObj = new JSONObject();
 		jsonObj.put("id", 1);
@@ -116,8 +116,8 @@ public class JsonTest {
 		jsonObj.put("age", 24);
 		// jsonObj.put("hobby",new String[]{"上网","游戏","跑步","音乐"});
 		// System.out.println(jsonObj.toString());
-		/** 
-		 * json对象转换成java对象 
+		/**
+		 * json对象转换成java对象
 		 */
 		Student stud = (Student) JSONObject.toBean(jsonObj, Student.class);
 		System.out.println(stud.getName());
