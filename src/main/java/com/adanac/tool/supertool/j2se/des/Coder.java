@@ -1,8 +1,5 @@
 package com.adanac.tool.supertool.j2se.des;
 
-import sun.misc.BASE64Decoder;
-import sun.misc.BASE64Encoder;
-
 @SuppressWarnings("restriction")
 public abstract class Coder {
 
@@ -15,7 +12,8 @@ public abstract class Coder {
 	 */
 	public static byte[] decryptBASE64(String key) throws Exception {
 
-		return (new BASE64Decoder()).decodeBuffer(key);
+		// return (new BASE64Decoder()).decodeBuffer(key);
+		return null;
 	}
 
 	/**
@@ -26,7 +24,8 @@ public abstract class Coder {
 	 * @throws Exception
 	 */
 	public static String encryptBASE64(byte[] key) throws Exception {
-		return (new BASE64Encoder()).encodeBuffer(key);
+		// return (new BASE64Encoder()).encodeBuffer(key);
+		return null;
 	}
 
 }
