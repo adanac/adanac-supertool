@@ -4,15 +4,9 @@ import static org.junit.Assert.fail;
 
 import org.junit.Test;
 
-import com.adanac.tool.supertool.j2se.reflect.ReflectUtils;
 import com.adanac.tool.supertool.thirdparty.excel.User;
 
 public class ReflectUtilsTest {
-	@SuppressWarnings("unchecked")
-	public static void main(String[] args) throws Exception {
-		// getFields(User.class);
-
-	}
 
 	@Test
 	public void testGetFieldModifier() {

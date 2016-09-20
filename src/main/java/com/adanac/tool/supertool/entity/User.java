@@ -11,7 +11,7 @@ public class User implements Serializable {
 	private String name;
 	private String password;
 	private int age;
-	private Skill skill;
+	private SkillDto skill;
 
 	public User() {
 		super();
@@ -62,11 +62,11 @@ public class User implements Serializable {
 		this.age = age;
 	}
 
-	public Skill getSkill() {
+	public SkillDto getSkill() {
 		return skill;
 	}
 
-	public void setSkill(Skill skill) {
+	public void setSkill(SkillDto skill) {
 		this.skill = skill;
 	}
 

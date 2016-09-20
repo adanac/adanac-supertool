@@ -1,10 +1,7 @@
 package com.adanac.tool.supertool.entity;
 
-/**
- * Create a thread to extentd Thread
- * @author adanac
- */
 public class GuessANumber extends Thread {
+
 	private int number;
 
 	public GuessANumber(int number) {

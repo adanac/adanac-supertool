@@ -5,7 +5,7 @@ package com.adanac.tool.supertool.j2se.clazz;
  * 
  * @author adanac
  */
-public class MapInvokeUtil {
+public class InvokeUtil {
 
 	// 用于测试
 	public void func1(String s) {

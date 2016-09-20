@@ -6,9 +6,6 @@ import java.lang.reflect.Method;
 
 /**
  * Java反射工具类
- * 
- * @author <a href="xdemo.org">xdemo.org</a>
- * 
  */
 public class ReflectUtils {
 
@@ -141,7 +138,7 @@ public class ReflectUtils {
 		Field[] fields = clazz.getDeclaredFields();
 		Field[] superFields = null;
 		if (superClass) {
-			Class superClazz = clazz.getSuperclass();
+			Class<?> superClazz = clazz.getSuperclass();
 			if (superClazz != null) {
 				superFields = superClazz.getDeclaredFields();
 			}

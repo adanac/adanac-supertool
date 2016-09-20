@@ -14,7 +14,7 @@ import org.apache.commons.beanutils.BeanUtils;
  * 
  * @author allen
  */
-public class BeanUtil {
+public class BeanMapUtil {
 
 	// Map --> Bean 2: 利用org.apache.commons.beanutils 工具类实现 Map --> Bean
 	public static void transMap2Bean2(Map<String, Object> map, Object obj) {

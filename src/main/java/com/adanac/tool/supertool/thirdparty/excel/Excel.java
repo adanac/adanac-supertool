@@ -6,7 +6,6 @@ import java.lang.annotation.RetentionPolicy;
 import java.lang.annotation.Target;
 
 /**
- * @author Goofy
  * Excel注解，用以生成Excel表格文件
  */
 @Retention(RetentionPolicy.RUNTIME)

@@ -9,8 +9,6 @@ import java.net.URLDecoder;
 /**
  * 获取 项目/文件 路径
  * 
- * @author <a href="http://www.xdemo.org/">http://www.xdemo.org/</a>
- *         252878950@qq.com
  */
 public class PathUtils {
 

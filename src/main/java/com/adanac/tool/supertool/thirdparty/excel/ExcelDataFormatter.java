@@ -5,10 +5,9 @@ import java.util.Map;
 
 /**
  * Excel数据导入导出格式化<br>
- * 举例:<br>
  * 数据导出， {lock,{0:正常，1:锁定}}<br>
  * 数据导入,{lock,{正常:0，锁定:1}}
- * @author Goofy <a href="http://www.xdemo.org">http://www.xdemo.org</a>
+ * 
  */
 public class ExcelDataFormatter {
 	/**

@@ -3,7 +3,7 @@ package com.adanac.tool.supertool.j2se.page;
 import java.util.HashMap;
 import java.util.Map;
 
-import com.adanac.tool.supertool.constant.Constants;
+import com.adanac.tool.supertool.constant.ToolConstants;
 
 public class PageUtil {
 
@@ -31,10 +31,10 @@ public class PageUtil {
 	public static int getTotalPage(int total) {
 		int totalPage = 0;
 		if (total != 0) {
-			if (total % Constants.threadConstants.PAGE_SIZE == 0) {
-				totalPage = total / Constants.threadConstants.PAGE_SIZE;
+			if (total % ToolConstants.threadConstants.PAGE_SIZE == 0) {
+				totalPage = total / ToolConstants.threadConstants.PAGE_SIZE;
 			} else {
-				totalPage = (total / Constants.threadConstants.PAGE_SIZE) + 1;
+				totalPage = (total / ToolConstants.threadConstants.PAGE_SIZE) + 1;
 			}
 		}
 		return totalPage;

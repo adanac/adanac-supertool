@@ -12,7 +12,7 @@ public class BucketSort {
 	 * 
 	 * @param res
 	 * @param sort
-	 *            是否升序
+	 *            isAsc
 	 * @return
 	 */
 	public static String _bucket_sort(int[] res, boolean sort) {

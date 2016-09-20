@@ -2,7 +2,7 @@ package com.adanac.tool.supertool.entity;
 
 import java.io.Serializable;
 
-public class Person implements Serializable {
+public class PersonDto implements Serializable {
 	/**
 	 * 
 	 */
@@ -12,11 +12,11 @@ public class Person implements Serializable {
 	private String sex;
 	private int age;
 
-	public Person() {
+	public PersonDto() {
 
 	}
 
-	public Person(String name, int num, String sex, int age) {
+	public PersonDto(String name, int num, String sex, int age) {
 		super();
 		this.name = name;
 		this.num = num;

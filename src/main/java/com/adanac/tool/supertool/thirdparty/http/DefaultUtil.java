@@ -5,7 +5,7 @@ import java.net.UnknownHostException;
 
 import javax.servlet.http.HttpServletRequest;
 
-import com.adanac.tool.supertool.constant.Constants;
+import com.adanac.tool.supertool.constant.ToolConstants;
 
 public class DefaultUtil {
 
@@ -49,12 +49,12 @@ public class DefaultUtil {
 	 */
 	public static String getMerchantCode(Long merchantId) {
 		String code = "";
-		if (null != merchantId && merchantId != Constants.intNum.NUM_0) {
+		if (null != merchantId && merchantId != ToolConstants.intNum.NUM_0) {
 			String merchantCode = merchantId.toString();
-			while (merchantCode.length() < Constants.MERCHANT_CODE_LENGTH) {
-				merchantCode = Constants.strNum.STR_0 + merchantCode;
+			while (merchantCode.length() < ToolConstants.MERCHANT_CODE_LENGTH) {
+				merchantCode = ToolConstants.strNum.STR_0 + merchantCode;
 			}
-			code = Constants.MERCHANT_CODE + merchantCode;
+			code = ToolConstants.MERCHANT_CODE + merchantCode;
 		}
 		return code;
 	}

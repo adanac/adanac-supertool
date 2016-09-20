@@ -35,18 +35,23 @@
 	 </properties>
 
 	<dependencies>
+		<!-- junit -->
+		<dependency>
+			<groupId>junit</groupId>
+			<artifactId>junit</artifactId>
+		</dependency>
+		
+		<!-- adanac -->
 		<dependency>
 		  <groupId>com.adanac.framework</groupId>
 		  <artifactId>adanac-log</artifactId>
 		</dependency>
 		<dependency>
-			<groupId>junit</groupId>
-			<artifactId>junit</artifactId>
+			<groupId>com.adanac.framework</groupId>
+			<artifactId>adanac-cache</artifactId>
+			<version>1.0.0</version>
 		</dependency>
-		<dependency>
-			<groupId>org.testng</groupId>
-			<artifactId>testng</artifactId>
-		</dependency>
+		
 		<!-- servlet -->
 		<dependency>
 			<groupId>javax.servlet</groupId>
@@ -101,11 +106,7 @@
 			<artifactId>json-lib</artifactId>
 			<classifier>jdk15</classifier>
 		</dependency>
-		<dependency>
-			<groupId>com.adanac.framework</groupId>
-			<artifactId>adanac-cache</artifactId>
-			<version>1.0.0</version>
-		</dependency>
+		
 		<dependency>
 			<groupId>org.apache</groupId>
 			<artifactId>commons-dbutils</artifactId>

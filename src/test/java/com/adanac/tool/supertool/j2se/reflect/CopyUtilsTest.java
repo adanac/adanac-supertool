@@ -3,10 +3,9 @@ package com.adanac.tool.supertool.j2se.reflect;
 import org.apache.commons.beanutils.BeanUtils;
 import org.junit.Test;
 
-import com.adanac.tool.supertool.entity.Skill;
+import com.adanac.tool.supertool.entity.SkillDto;
 import com.adanac.tool.supertool.entity.User;
 import com.adanac.tool.supertool.entity.UserDto;
-import com.adanac.tool.supertool.j2se.reflect.CopyUtils;
 
 public class CopyUtilsTest {
 
@@ -32,7 +31,7 @@ public class CopyUtilsTest {
 		u.setId(101);
 		u.setName("allen");
 		u.setPassword("pwd1");
-		Skill s1 = new Skill();
+		SkillDto s1 = new SkillDto();
 		s1.setSid("s101");
 		s1.setSname("吃饭");
 		s1.setSlevel(2);
@@ -65,7 +64,7 @@ public class CopyUtilsTest {
 		u.setName("allen");
 		u.setPassword("pwd1");
 
-		Skill s1 = new Skill();
+		SkillDto s1 = new SkillDto();
 		s1.setSid("s101");
 		s1.setSname("吃饭");
 		s1.setSlevel(2);

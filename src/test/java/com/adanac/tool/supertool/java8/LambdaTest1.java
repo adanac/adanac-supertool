@@ -1,4 +1,4 @@
-package com.adanac.tool.supertool.java8.lambda;
+package com.adanac.tool.supertool.java8;
 
 import java.util.ArrayList;
 import java.util.Collections;

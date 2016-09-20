@@ -10,8 +10,6 @@ import java.util.Properties;
 /**
  * Properties文件的读写
  * 
- * @author <a href="http://www.xdemo.org/">http://www.xdemo.org/</a>
- *         252878950@qq.com
  */
 public class PropertiesUtils {
 

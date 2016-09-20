@@ -1,4 +1,4 @@
-package com.adanac.tool.supertool.entity.xml;
+package com.adanac.tool.supertool.entity;
 
 import java.util.Date;
 
@@ -7,7 +7,7 @@ import org.simpleframework.xml.Element;
 import org.simpleframework.xml.Root;
 
 @Root
-public class Order {
+public class OrderExcel {
 
 	@Attribute
 	private String id;
@@ -18,10 +18,10 @@ public class Order {
 	@Element
 	private Date date;
 
-	public Order() {
+	public OrderExcel() {
 	}
 
-	public Order(String id, String code, Date date) {
+	public OrderExcel(String id, String code, Date date) {
 		super();
 		this.id = id;
 		this.code = code;

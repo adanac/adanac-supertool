@@ -8,8 +8,8 @@ import java.util.List;
 import org.simpleframework.xml.Serializer;
 import org.simpleframework.xml.core.Persister;
 
-import com.adanac.tool.supertool.entity.xml.Order;
-import com.adanac.tool.supertool.entity.xml.User;
+import com.adanac.tool.supertool.entity.OrderExcel;
+import com.adanac.tool.supertool.entity.UserExcel;
 
 /**
  * XML序列化与反序列化工具类
@@ -48,16 +48,16 @@ public class XmlUtils {
 	}
 
 	public static void main(String[] args) throws Exception {
-		User u = new User();
+		UserExcel u = new UserExcel();
 		u.setAddress("xxx");
 		u.setName("GGG");
 		u.setAge(22);
-		List<Order> ss = new ArrayList<Order>();
-		ss.add(new Order("22", "x2001-12-12", new Date()));
-		ss.add(new Order("33", "x2021-02-02", new Date()));
+		List<OrderExcel> ss = new ArrayList<OrderExcel>();
+		ss.add(new OrderExcel("22", "x2001-12-12", new Date()));
+		ss.add(new OrderExcel("33", "x2021-02-02", new Date()));
 		u.setOrders(ss);
 		beanToXml(u, "D:\\x.xml");
-		u = new User();
+		u = new UserExcel();
 		xmlToBean("D:\\x.xml", u);
 		System.out.println(u.getAddress());
 	}

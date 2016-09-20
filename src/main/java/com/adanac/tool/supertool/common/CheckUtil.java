@@ -5,7 +5,7 @@ import java.util.regex.Pattern;
 
 import org.apache.commons.lang3.StringUtils;
 
-import com.adanac.tool.supertool.constant.Constants;
+import com.adanac.tool.supertool.constant.ToolConstants;
 
 public class CheckUtil {
 
@@ -107,10 +107,10 @@ public class CheckUtil {
 	 * @return
 	 */
 	public static boolean chkStatus(String value) {
-		if (Constants.strNum.STR_0.equals(value)) {
+		if (ToolConstants.strNum.STR_0.equals(value)) {
 			return true;
 		}
-		if (Constants.strNum.STR_1.equals(value)) {
+		if (ToolConstants.strNum.STR_1.equals(value)) {
 			return true;
 		}
 
@@ -137,10 +137,10 @@ public class CheckUtil {
 	 * @return
 	 */
 	public static boolean chkSex(String value) {
-		if (Constants.strNum.STR_0.equals(value)) {
+		if (ToolConstants.strNum.STR_0.equals(value)) {
 			return true;
 		}
-		if (Constants.strNum.STR_1.equals(value)) {
+		if (ToolConstants.strNum.STR_1.equals(value)) {
 			return true;
 		}
 		return false;

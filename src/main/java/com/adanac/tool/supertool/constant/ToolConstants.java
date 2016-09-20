@@ -3,7 +3,7 @@ package com.adanac.tool.supertool.constant;
 /**
  * 常量类
  */
-public interface Constants {
+public interface ToolConstants {
 
 	/**
 	 * 默认每页展示条数
@@ -34,6 +34,7 @@ public interface Constants {
 
 	/**
 	 * 数字常量
+	 * 
 	 * @return int
 	 */
 	public static class intNum {
@@ -54,6 +55,7 @@ public interface Constants {
 
 	/**
 	 * 返回字符类型数字常量
+	 * 
 	 * @return string
 	 */
 	public static class strNum {

@@ -1,4 +1,4 @@
-package com.adanac.tool.supertool.entity.xml;
+package com.adanac.tool.supertool.entity;
 
 import java.util.List;
 
@@ -12,7 +12,7 @@ import org.simpleframework.xml.Root;
 @Root(name = "u")
 @NamespaceList({ @Namespace(reference = "urn:loc.gov:books"),
 		@Namespace(reference = "urn:ISBN:0-395-36341-6", prefix = "isbn") })
-public class User {
+public class UserExcel{
 
 	@Element(name = "name", required = false)
 	private String name;
@@ -23,8 +23,8 @@ public class User {
 	@Attribute(name = "address")
 	private String address;
 
-	@ElementList(entry = "order", inline = false, name = "orders", type = Order.class)
-	private List<Order> orders;
+	@ElementList(entry = "order", inline = false, name = "orders", type = OrderExcel.class)
+	private List<OrderExcel> orders;
 
 	public String getName() {
 		return name;
@@ -50,11 +50,11 @@ public class User {
 		this.address = address;
 	}
 
-	public List<Order> getOrders() {
+	public List<OrderExcel> getOrders() {
 		return orders;
 	}
 
-	public void setOrders(List<Order> orders) {
+	public void setOrders(List<OrderExcel> orders) {
 		this.orders = orders;
 	}
 

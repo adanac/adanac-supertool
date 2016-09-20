@@ -28,17 +28,19 @@ import org.apache.commons.io.IOUtils;
 /**
  * 图像处理工具类（本类完全可以使用，但是更加推荐ImageMagick +Jmagick，采用C++实现的一个类库，提供了Java的Api，非常强大和高效）
  * 而且要为JVM分配较大的堆内存，否则内存溢出
- * @author <a href="http://www.xdemo.org/">http://www.xdemo.org/</a>
- * 252878950@qq.com
  */
 public class ImageUtils {
 
 	/**
 	 * 缩放图片
-	 * @param src 源文件
-	 * @param dest 目标文件
-	 * @param ratio 缩放比例，如 0.1,0.8,1.2,2.4
-	 * @throws IOException 
+	 * 
+	 * @param src
+	 *            源文件
+	 * @param dest
+	 *            目标文件
+	 * @param ratio
+	 *            缩放比例，如 0.1,0.8,1.2,2.4
+	 * @throws IOException
 	 */
 	public static void zoom(String src, String dest, double ratio) throws IOException {
 		// 获取文件扩展名
@@ -65,12 +67,19 @@ public class ImageUtils {
 
 	/**
 	 * 切图
-	 * @param src 源文件
-	 * @param dest 目标文件
-	 * @param startX 起点x坐标
-	 * @param startY 起点y坐标
-	 * @param endX 结束点x坐标
-	 * @param endY 结束点y坐标
+	 * 
+	 * @param src
+	 *            源文件
+	 * @param dest
+	 *            目标文件
+	 * @param startX
+	 *            起点x坐标
+	 * @param startY
+	 *            起点y坐标
+	 * @param endX
+	 *            结束点x坐标
+	 * @param endY
+	 *            结束点y坐标
 	 * @throws IOException
 	 */
 	public static void cut(String src, String dest, int startX, int startY, int endX, int endY) throws IOException {
@@ -89,10 +98,14 @@ public class ImageUtils {
 	/**
 	 * 旋转图片
 	 * 
-	 * @param src 源文件
-	 * @param dest 目标文件
-	 * @param degree 旋转角度
-	 * @param bgcolor 背景色，无背景色为null
+	 * @param src
+	 *            源文件
+	 * @param dest
+	 *            目标文件
+	 * @param degree
+	 *            旋转角度
+	 * @param bgcolor
+	 *            背景色，无背景色为null
 	 * @throws IOException
 	 */
 	public static void rotate(String src, String dest, int degree, Color bgcolor) throws IOException {

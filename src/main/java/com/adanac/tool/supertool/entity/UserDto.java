@@ -3,10 +3,9 @@ package com.adanac.tool.supertool.entity;
 import java.io.Serializable;
 
 public class UserDto implements Serializable {
-	/**
-	 * 
-	 */
+
 	private static final long serialVersionUID = -2392811205898246815L;
+
 	private Integer id;
 	private String name;
 	private String password;

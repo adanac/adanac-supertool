@@ -21,7 +21,7 @@ import com.adanac.framework.exception.BizzException;
 import com.adanac.framework.log.MyLogger;
 import com.adanac.framework.log.MyLoggerFactory;
 import com.adanac.framework.utils.StringUtils;
-import com.adanac.tool.supertool.constant.Constants;
+import com.adanac.tool.supertool.constant.ToolConstants;
 import com.adanac.tool.supertool.entity.Employee;
 
 public class ExcelUtil {
@@ -32,10 +32,11 @@ public class ExcelUtil {
 
 	/**
 	 * 根据文件路径和行数读取文件内容，并返回Map集合对象
+	 * 
 	 * @param filePath文件路径
 	 * @param cellNumber列数
 	 * @param rowNumber从哪一行开始读取
-	 * @return 
+	 * @return
 	 */
 	public List<Map<Integer, Object>> readObjFromXlsx(String filePath, int cellNumber, int rowNumber) {
 
@@ -153,12 +154,12 @@ public class ExcelUtil {
 		style.setBorderTop(HSSFCellStyle.BORDER_THIN);
 		style.setAlignment(HSSFCellStyle.ALIGN_CENTER);
 		// 标题样式
-		if (row == Constants.intNum.NUM_0) {
+		if (row == ToolConstants.intNum.NUM_0) {
 			style.setFillForegroundColor(HSSFColor.LIGHT_BLUE.index);
 			return style;
 		}
 		// 双行样式
-		if (row % Constants.intNum.NUM_2 == Constants.intNum.NUM_0) {
+		if (row % ToolConstants.intNum.NUM_2 == ToolConstants.intNum.NUM_0) {
 			style.setFillForegroundColor(HSSFColor.GREY_25_PERCENT.index);
 		} else {
 			style.setFillForegroundColor(HSSFColor.LIGHT_CORNFLOWER_BLUE.index);

@@ -14,6 +14,7 @@ import java.util.Properties;
  *
  */
 public class DbConfig {
+
 	// 数据库及server配置文件路径
 	private static final String ACTIONPATH = "config.properties";
 	private static DbConfig instance = null;

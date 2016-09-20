@@ -1,10 +1,15 @@
 package com.adanac.tool.supertool.j2se.datetime;
 
+import java.sql.Timestamp;
+import java.text.DateFormat;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.Date;
 import java.util.GregorianCalendar;
+import java.util.TimeZone;
+
+import com.adanac.tool.supertool.constant.ToolConstants;
 
 /**
  * 日期工具类
@@ -12,19 +17,56 @@ import java.util.GregorianCalendar;
  * @author <a href="http://www.xdemo.org/">http://www.xdemo.org/</a>
  *         252878950@qq.com
  */
-public class DateUtils {
+public class DateTimeUtils {
+
+	public static String utc2Gmt8(String utcStr) {
+
+		SimpleDateFormat utcDateFormat = getUTCDateFormat();
+		SimpleDateFormat localDateFormat = getLocalDateFormat();
+		try {
+			Date date = utcDateFormat.parse(utcStr);
+
+			return localDateFormat.format(date);
+		} catch (ParseException e) {
+			throw new RuntimeException(e);
+		}
+
+	}
+
+	public static String gmt82utc(String gmtStr) {
+
+		SimpleDateFormat localDateFormat = getLocalDateFormat();
+		SimpleDateFormat utcDateFormat = getUTCDateFormat();
+
+		try {
+			Date date = localDateFormat.parse(gmtStr);
+
+			return utcDateFormat.format(date);
+		} catch (ParseException e) {
+			throw new RuntimeException(e);
+		}
+	}
 
 	/**
-	 * <b>获取当前时间</b><br>
-	 * y 年 M 月 d 日 H 24小时制 h 12小时制 m 分 s 秒
-	 * 
-	 * @param format
-	 *            日期格式
-	 * @return String
+	 * gmt8
+	 *
+	 * @return
 	 */
-	public static String getCurrentDate(String format) {
-		SimpleDateFormat sdf = new SimpleDateFormat(format);
-		return sdf.format(new Date());
+	private static SimpleDateFormat getLocalDateFormat() {
+		SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
+		dateFormat.setTimeZone(TimeZone.getTimeZone("Asia/Shanghai"));
+		return dateFormat;
+	}
+
+	/**
+	 * utc
+	 *
+	 * @return
+	 */
+	private static SimpleDateFormat getUTCDateFormat() {
+		SimpleDateFormat utcDateFormat = new SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ss'Z'");
+		utcDateFormat.setTimeZone(TimeZone.getTimeZone("UTC"));
+		return utcDateFormat;
 	}
 
 	/**
@@ -256,6 +298,92 @@ public class DateUtils {
 		cal.set(Calendar.MONTH, month);
 		cal.set(Calendar.DAY_OF_MONTH, 0);
 		return cal.getTime();
+	}
+
+	/**
+	 * 获取当前日期
+	 * 
+	 * @return YYYYMMDD
+	 */
+	public static String getCurrentDate() {
+		SimpleDateFormat sdf = new SimpleDateFormat("yyyyMMdd");
+		String currDate = sdf.format(new Date().getTime());
+		return currDate;
+	}
+
+	/**
+	 * 获取当前日期
+	 * 
+	 * @param dateFormat
+	 *            日期格式
+	 * @return
+	 */
+	public static String getCurrentDate(String dateFormat) {
+		SimpleDateFormat sdf = new SimpleDateFormat("" + dateFormat + "");
+		return sdf.format(new Date().getTime());
+	}
+
+	/**
+	 * 获取指定格式类型的时间
+	 * 
+	 * @param dateFormat（时间格式：yyyy-MM-dd
+	 *            HH:mm:ss(默认)）
+	 * @param datetime
+	 *            毫秒数
+	 * @return
+	 */
+	public static String getDateFormat(String dateFormat, String datetime) {
+		if (dateFormat == null || "".equals(dateFormat)) {
+			dateFormat = "yyyy-MM-dd HH:mm:ss";
+		}
+		long timeMillis = 0l;
+		if (datetime == null || "".equals(datetime)) {
+			timeMillis = new Date().getTime();
+		} else {
+			timeMillis = Long.parseLong(datetime);
+		}
+
+		DateFormat df = new SimpleDateFormat(dateFormat);
+		return df.format(timeMillis);
+	}
+
+	/**
+	 * 获取当前时间
+	 * 
+	 * @return
+	 */
+	public static String getCurrentTimestamp() {
+		return new Timestamp(new Date().getTime()).toString();
+	}
+
+	/**
+	 * 获取当前时间+1年
+	 * 
+	 * @return
+	 */
+	public static Timestamp getOneYearLaterTs() {
+		Calendar currCalendar = Calendar.getInstance();
+		currCalendar.set(Calendar.YEAR, currCalendar.get(Calendar.YEAR) + 1);
+		return new Timestamp(currCalendar.getTimeInMillis());
+
+	}
+
+	/**
+	 * 判断是否已过期
+	 * 
+	 * @param time
+	 * @return
+	 */
+	public static boolean isExpire(String time) {
+		// 需要比对失效时间，失效的话则返回空
+		Date endDate = DateTimeUtils.parse(time, ToolConstants.PATTREN_2);
+		Date now = new Date();
+		// 该券已过期了
+		if (endDate.before(now)) {
+			return true;
+		} else {
+			return false;
+		}
 	}
 
 	public static void main(String[] args) throws ParseException {

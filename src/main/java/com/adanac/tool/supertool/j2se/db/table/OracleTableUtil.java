@@ -17,6 +17,7 @@ import java.util.Map;
  * all_col_comments
  */
 public class OracleTableUtil {
+
 	private static final String DRIVER_CLASS = "oracle.jdbc.driver.OracleDriver";
 	private static final String DATABASE_URL = "jdbc:oracle:thin:@192.168.1.10:1521:orcl";
 	private static final String DATABASE_USER = "dev";

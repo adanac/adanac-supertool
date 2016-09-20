@@ -11,8 +11,6 @@ import java.util.Date;
 
 /**
  * Java常用数据类型枚举
- * @author Goofy
- * @Date 2015年6月27日 上午10:31:36
  */
 public enum Types {
 

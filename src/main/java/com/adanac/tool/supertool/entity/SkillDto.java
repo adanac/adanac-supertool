@@ -5,7 +5,7 @@ import java.io.Serializable;
 /**
  * 技能
  */
-public class Skill implements Serializable {
+public class SkillDto implements Serializable {
 	/**
 	 * 
 	 */

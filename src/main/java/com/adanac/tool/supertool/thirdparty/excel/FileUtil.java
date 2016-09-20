@@ -13,13 +13,14 @@ import org.apache.poi.xssf.usermodel.XSSFWorkbook;
 import org.springframework.web.context.request.RequestContextHolder;
 import org.springframework.web.context.request.ServletRequestAttributes;
 
-import com.adanac.tool.supertool.constant.Constants;
-import com.adanac.tool.supertool.j2se.datetime.TimeUtil;
+import com.adanac.tool.supertool.constant.ToolConstants;
+import com.adanac.tool.supertool.j2se.datetime.DateTimeUtils;
 
 public class FileUtil {
 
 	/**
 	 * 生成excle文件
+	 * 
 	 * @author 陈荣祥
 	 */
 	public static Map<String, Object> createExcel(XSSFWorkbook workbook, String filePath, String fileName) {
@@ -29,10 +30,10 @@ public class FileUtil {
 					.getRequest();
 			String basePath = request.getSession().getServletContext().getRealPath("/");
 			if ("".equals(filePath)) {
-				filePath = Constants.ExcleFile.FILEPATH;
+				filePath = ToolConstants.ExcleFile.FILEPATH;
 			}
 			if ("".equals(fileName)) {
-				fileName = TimeUtil.getDateFormat("yyyyMMddHHmmss", "") + ".xlxs";
+				fileName = DateTimeUtils.getDateFormat("yyyyMMddHHmmss", "") + ".xlxs";
 			}
 			// 将文件存于
 			File file = new File(basePath + filePath);

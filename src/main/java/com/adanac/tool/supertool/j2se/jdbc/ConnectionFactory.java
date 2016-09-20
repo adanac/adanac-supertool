@@ -7,9 +7,10 @@ import java.sql.SQLException;
 import com.mysql.jdbc.Driver;
 
 /**
- * Connect to DataBase Created by allen
+ * Connect to DataBase
  */
 public class ConnectionFactory {
+
 	public static final String URL = "jdbc:mysql://192.168.1.173:3306/demo";
 	public static final String USER = "root";
 	public static final String PASS = "root";

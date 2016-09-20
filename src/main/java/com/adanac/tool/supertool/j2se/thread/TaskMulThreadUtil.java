@@ -5,6 +5,7 @@ import java.util.List;
 import junit.framework.TestCase;
 
 public class TaskMulThreadUtil extends TestCase implements ITaskHandle<String, Boolean> {
+
 	public void testExecute() throws Exception {
 		String[] taskItems = new String[100];
 		for (int i = 0; i < 100; i++) {
